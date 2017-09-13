@@ -11,7 +11,7 @@ class IndexController extends CommonController{
         $data=array();
         $user_name=I("user_name");
         $user_password=I("user_password");
-//        $user_password=md5($user_password); //对密码进行加密
+        $user_password=md5($user_password); //对密码进行加密
         $code=I("code");
         //检测用户是否存在
         $parameter_user_checkname=array(

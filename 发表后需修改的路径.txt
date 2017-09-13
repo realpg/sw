@@ -6,3 +6,7 @@
 6.Public/Admin/javascript/pages/login.js     30行  $("#verify").attr("src","/sw/Admin/Verify/verify");
 7.Public/Admin/javascript/public.js     100行  location.href =  '/sw/Admin/Index/unsetsession';
 8.Public/Admin/javascript/public.js     109行  $.post("/sw/Admin/Index/clearruntime",function(data){
+9.Application/Admin/View/User/index.html    30行  <img src="/sw/Admin/Verify/verify" width="100px" height="32px" id="verify"  onclick="this.src=this.src+'?'+Math.random();" />
+10.Public/Admin/javascript/supplement.js     34行  $.post("/sw/Admin/User/editDo",{"user_password":user_password,"user_new_password":user_new_password,"code":code},function(data){
+11.Public/Admin/javascript/supplement.js     39行  $('.dialog .dialog-ft').html("<a href='/sw/Admin'><button class='btn btn-info JyesBtn'>确认</button></a>")
+12.Public/Admin/javascript/supplement.js     46行  $("#verify").attr("src","/sw/Admin/Verify/verify");

@@ -91,27 +91,47 @@
             <!--开始::内容-->
             
     <div class="page-wrap">
-        <section class="page-hd">
-            <header>
-                <h2 class="title"><i class="icon-home"></i>后台系统首页</h2>
-            </header>
-            <hr>
-        </section>
-        <div class="panel panel-default">
-            <div class="panel-bd capitalize">
-                浏览器兼容：google chrome、microsoft edge、360浏览器、火狐浏览器、uc浏览器等高版本浏览器。
+        <blockquote class="blockquote mb-10"><?php echo CUSTOM_MESSAGE_EDITUSER;?></blockquote>
+        <div class="form-group-col-2">
+            <div class="form-label">用户名：</div>
+            <div class="form-cont">
+                <input type="text" value="<?php echo ($_SESSION['user']['user_name']); ?>" class="form-control form-boxed width-30" name="user_name" id="user_name" />
+                <span class="word-aux"><i class="icon-warning-sign"></i><?php echo CUSTOM_SYSTOM_REQUIRED;?></span>
             </div>
         </div>
-        <div class="flow-layout col-3">
-            <ul>
-                <?php if(is_array($info)): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$info): $mod = ($i % 2 );++$i;?><li class="child-wrap">
-                        <div class="panel panel-default">
-                            <div class="panel-bd">
-                                <?php echo ($key); ?>:<?php echo ($info); ?>
-                            </div>
-                        </div>
-                    </li><?php endforeach; endif; else: echo "" ;endif; ?>
-            </ul>
+        <div class="form-group-col-2">
+            <div class="form-label">原密码：</div>
+            <div class="form-cont">
+                <input type="password" class="form-control form-boxed width-30" name="user_password" id="user_password" />
+                <span class="word-aux"><i class="icon-warning-sign"></i><?php echo CUSTOM_SYSTOM_REQUIRED;?></span>
+            </div>
+        </div>
+        <div class="form-group-col-2">
+            <div class="form-label">新密码：</div>
+            <div class="form-cont">
+                <input type="password" class="form-control form-boxed width-30" name="user_new_password" id="user_new_password" />
+                <span class="word-aux"><i class="icon-warning-sign"></i><?php echo CUSTOM_SYSTOM_REQUIRED;?></span>
+            </div>
+        </div>
+        <div class="form-group-col-2">
+            <div class="form-label">确认密码：</div>
+            <div class="form-cont">
+                <input type="password" class="form-control form-boxed width-30" name="user_confirm_password" id="user_confirm_password" />
+                <span class="word-aux"><i class="icon-warning-sign"></i><?php echo CUSTOM_SYSTOM_REQUIRED;?></span>
+            </div>
+        </div>
+        <div class="form-group-col-2">
+            <div class="form-label">验证码：</div>
+            <div class="form-cont">
+                <input type="text" class="form-control form-boxed" style="width:100px;" name="code" id="code" />
+                <img src="/sw/Admin/Verify/verify" width="100px" height="32px" id="verify"  onclick="this.src=this.src+'?'+Math.random();" />
+            </div>
+        </div>
+        <div class="form-group-col-2">
+            <div class="form-label"></div>
+            <div class="form-cont">
+                <input type="submit" class="btn btn-primary" value="<?php echo CUSTOM_SYSTOM_PUTIN;?>" onclick="edit_password()" />
+            </div>
         </div>
     </div>
 
@@ -132,6 +152,24 @@
         
     </div>
 </div>
+
+    
+    <div class="mask"></div>
+<div class="dialog">
+	<div class="dialog-hd">
+		<strong class="lt-title"><?php echo CUSTOM_SYSTOM_BAR;?></strong>
+		<a class="rt-operate icon-remove JclosePanel" title="<?php echo CUSTOM_SYSTOM_COLSE;?>"></a>
+	</div>
+	<div class="dialog-bd"><p></p></div>
+	<div class="dialog-ft">
+		<button class="btn btn-info JyesBtn"><?php echo CUSTOM_SYSTOM_CONFIRM;?></button>
+		<button class="btn btn-secondary JnoBtn"><?php echo CUSTOM_SYSTOM_COLSE;?></button>
+	</div>
+</div>
+<dialog class="automatic">
+	<span class="icon-volume-down"></span>
+</dialog>
+    
 
 </body>
 </html>

@@ -9,13 +9,21 @@ class UserModel extends RelationModel{
             "field"=>array("user_name"),
             "where"=>array("user_name"=>"null"),
         ),
-        //检测密码
+        //检测密码（用于登陆页验证）
         "check_password"=>array(
             "field"=>array("user_id","user_name"),
             "where"=>array(
                 "user_name"=>"null",
                 "user_password"=>"null"
-                ),
+            ),
+        ),
+        //检测密码（用于用户修改信息）
+        "check_user_password"=>array(
+            "field"=>array("user_id","user_name"),
+            "where"=>array(
+                "user_id"=>"null",
+                "user_password"=>"null"
+            ),
         ),
     );
 }

@@ -1,10 +1,16 @@
-function edit_password(user_id)
+function edit_password()
 {
+    var user_name=$("#user_name").val();
     var user_password=$("#user_password").val();
     var user_new_password=$("#user_new_password").val();
     var user_confirm_password=$("#user_confirm_password").val();
     var code=$("#code").val();
-    if(user_password=="")
+    if(user_name=="")
+    {
+        $('.mask,.dialog').show();
+        $('.dialog .dialog-bd p').html('请输入用户名');
+    }
+    else if(user_password=="")
     {
         $('.mask,.dialog').show();
         $('.dialog .dialog-bd p').html('请输入原密码');
@@ -31,19 +37,19 @@ function edit_password(user_id)
     }
     else
     {
-        $.post("/dsyyManage/Admin/User/editDo",{"user_password":user_password,"user_new_password":user_new_password,"code":code},function(data){
+        $.post("/sw/Admin/User/editDo",{"user_name":user_name,"user_password":user_password,"user_new_password":user_new_password,"code":code},function(data){
             if(data.code=="1000")
             {
                 $('.mask,.dialog').show();
                 $('.dialog .dialog-bd p').html('修改成功，请重新登录');
-                $('.dialog .dialog-ft').html("<a href='/dsyyManage/Admin'><button class='btn btn-info JyesBtn'>确认</button></a>")
+                $('.dialog .dialog-ft').html("<a href='/sw/Admin'><button class='btn btn-info JyesBtn'>确认</button></a>")
             }
             else
             {
                 $('.mask,.dialog').show();
                 $('.dialog .dialog-bd p').html(data.message);
             }
-            $("#verify").attr("src","/dsyyManage/Admin/Verify/verify");
+            $("#verify").attr("src","/sw/Admin/Verify/verify");
         },"json")
     }
 }

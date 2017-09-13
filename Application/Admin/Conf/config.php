@@ -28,7 +28,7 @@ define("CUSTOM_SYSTOM_EXIT", "安全退出");
 
 define("CUSTOM_SYSTOM_FIND_SUBTITLE","reset password");  //后台栏目标题
 define("CUSTOM_SYSTOM_WEBTITLE","后台管理系统");  //后台通用网页名
-define("CUSTOM_SYSTOM_MENU","管理系统");  //后台栏目标题
+define("CUSTOM_SYSTOM_MENU","后台管理系统模块导航");  //后台栏目标题
 define("CUSTOM_SYSTOM_HOME","后台主页");  //后台栏目-后台主页
 define("CUSTOM_SYSTOM_CLEAR","清除缓存");  //后台通用顶部文字
 define("CUSTOM_SYSTOM_ADMIN","管理员");  //后台通用顶部文字
