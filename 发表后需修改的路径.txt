@@ -1,0 +1,8 @@
+1.Application/Admin/View/Index/index.html    33行  /sw/Admin/Verify/verify
+2.Application/Admin/Common/CommonController.class.php   13行  $this->error('警告！非法操作：登录超时或用户已被清除，请重新先登录！跳转中...',"/sw/admin.html",5);
+3.Application/Admin/Common/CommonController.class.php   24行  $this->error('警告！非法操作：请先登录！跳转中...',"/sw/admin.html",5);
+4.Public/Admin/javascript/pages/login.js     20行  $.post("../sw/Admin/Index/login",{"user_id":user_id,"user_password":user_password,"code":code},function(data)
+5.Public/Admin/javascript/pages/login.js     23行  location.href="../sw/Admin/Home/index";
+6.Public/Admin/javascript/pages/login.js     30行  $("#verify").attr("src","/sw/Admin/Verify/verify");
+7.Public/Admin/javascript/public.js     100行  location.href =  '/sw/Admin/Index/unsetsession';
+8.Public/Admin/javascript/public.js     109行  $.post("/sw/Admin/Index/clearruntime",function(data){
