@@ -2,10 +2,11 @@
 <block name="main">
     <div class="page-wrap">
         <blockquote class="blockquote mb-10">{:CUSTOM_MESSAGE_EDITUSER}</blockquote>
+        <span hidden id="user_id">{$user_row.user_id}</span>
         <div class="form-group-col-2">
             <div class="form-label">用户名：</div>
             <div class="form-cont">
-                <input type="text" value="{$Think.session.user.user_name}" class="form-control form-boxed width-30" name="user_name" id="user_name" />
+                <input type="text" value="{$user_row.user_name}" class="form-control form-boxed width-30" name="user_name" id="user_name" />
                 <span class="word-aux"><i class="icon-warning-sign"></i>{:CUSTOM_SYSTOM_REQUIRED}</span>
             </div>
         </div>

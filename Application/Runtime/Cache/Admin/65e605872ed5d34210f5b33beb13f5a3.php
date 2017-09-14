@@ -96,26 +96,50 @@
     <div class="page-wrap">
         <section class="page-hd">
             <header>
-                <h2 class="title"><i class="icon-home"></i>后台系统首页</h2>
+                <h2 class="title"><i class="icon-table"></i>用户列表</h2>
             </header>
             <hr>
         </section>
-        <div class="panel panel-default">
-            <div class="panel-bd capitalize">
-                浏览器兼容：google chrome、microsoft edge、360浏览器、火狐浏览器、uc浏览器等高版本浏览器。
-            </div>
+        <div class="fr input-group mb-15">
+            <form action="/sw/Admin/User/index" method="get">
+                <input name="searchname" type="text" type="searchname" placeholder="<?php echo ($searchname); ?>" class="form-control form-boxed" style="width:auto;">
+                <input name="bar_id" type="hidden" class="form-control" value="<?php echo ($bar_row["id"]); ?>" style="width:290px;">
+                <button class="btn btn-secondary">搜索</button>
+            </form>
         </div>
-        <div class="flow-layout col-3">
-            <ul>
-                <?php if(is_array($info)): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$info): $mod = ($i % 2 );++$i;?><li class="child-wrap">
-                        <div class="panel panel-default">
-                            <div class="panel-bd">
-                                <?php echo ($key); ?>:<?php echo ($info); ?>
-                            </div>
-                        </div>
-                    </li><?php endforeach; endif; else: echo "" ;endif; ?>
-            </ul>
-        </div>
+        <p class="title-description"></p>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+            <tr>
+                <th width="10%">序号</th>
+                <th>用户</th>
+                <th>密码</th>
+                <th width="10%">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php if(is_array($user_rows)): $i = 0; $__LIST__ = $user_rows;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$user_row): $mod = ($i % 2 );++$i;?><tr class="cen">
+                    <td><?php echo ($i); ?></td>
+                    <td><?php echo ($user_row["user_name"]); ?></td>
+                    <td><?php echo ($user_row["user_password"]); ?></td>
+                    <td>
+                        <a href="<?php echo U('Admin/User/edit',array('user_id'=>$user_row[user_id]));?>" title="<?php echo CUSTOM_SYSTOM_EDIT;?>" class="mr-5"><?php echo CUSTOM_SYSTOM_EDIT;?></a>
+                    </td>
+                </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+            </tbody>
+        </table>
+        <?php if(empty($user_rows)): ?><div class="panel panel-default">
+                <div class="panel-bd text-center">
+                    <?php echo CUSTOM_MESSAGE_NODATA;?>
+                </div>
+            </div><?php endif; ?>
+        <?php if($user_count > CUSTOM_PAGING): ?><div class="panel panel-default">
+                <div class="panel-bd">
+                    <div class='pagination'>
+                    <?php echo ($page_show); ?>
+                    </div>
+                </div>
+            </div><?php endif; ?>
     </div>
 
             <!--开始::结束-->

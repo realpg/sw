@@ -20,6 +20,11 @@
                     <dt>
                         <i class="icon-user"></i>用户信息管理<i class="icon-angle-right"></i>
                     </dt>
+                    <eq name="Think.session.user.user_id" value="1">
+                        <dd>
+                            <a href="{:U('Admin/User/index')}">用户管理</a>
+                        </dd>
+                    </eq>
                     <dd>
                         <a href="{:U('Admin/User/edit')}">修改密码</a>
                     </dd>

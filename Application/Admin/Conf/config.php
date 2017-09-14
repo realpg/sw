@@ -1,5 +1,5 @@
 <?php
-define("CUSTOM_PAGING", 10);  //分页后单页显示的数量
+define("CUSTOM_PAGING", 6);  //分页后单页显示的数量
 define("CUSTOM_p_1", 8);
 define("CUSTOM_p_2", 6);
 define("CUSTOM_p_length", 16);

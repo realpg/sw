@@ -43,6 +43,9 @@
                     <dt>
                         <i class="icon-user"></i>用户信息管理<i class="icon-angle-right"></i>
                     </dt>
+                    <?php if(($_SESSION['user']['user_id']) == "1"): ?><dd>
+                            <a href="<?php echo U('Admin/User/index');?>">用户管理</a>
+                        </dd><?php endif; ?>
                     <dd>
                         <a href="<?php echo U('Admin/User/edit');?>">修改密码</a>
                     </dd>
@@ -77,9 +80,9 @@
     </div>
 	<div class="hd-rt">
 		<ul>
-			<!--<li>-->
-				<!--<a herf="javascript:void(0)"  id="ClearRuntime"><i class="icon-random"></i><?php echo CUSTOM_SYSTOM_CLEAR;?></a>-->
-			<!--</li>-->
+			<li>
+				<i class="icon-user"></i><?php echo ($_SESSION['user']['user_name']); ?>
+			</li>
 			<li>
 				<a href="javascript:void(0)" id="JsSignOut"><i class="icon-signout"></i><?php echo CUSTOM_SYSTOM_EXIT;?></a>
 			</li>
@@ -92,10 +95,11 @@
             
     <div class="page-wrap">
         <blockquote class="blockquote mb-10"><?php echo CUSTOM_MESSAGE_EDITUSER;?></blockquote>
+        <span hidden id="user_id"><?php echo ($user_row["user_id"]); ?></span>
         <div class="form-group-col-2">
             <div class="form-label">用户名：</div>
             <div class="form-cont">
-                <input type="text" value="<?php echo ($_SESSION['user']['user_name']); ?>" class="form-control form-boxed width-30" name="user_name" id="user_name" />
+                <input type="text" value="<?php echo ($user_row["user_name"]); ?>" class="form-control form-boxed width-30" name="user_name" id="user_name" />
                 <span class="word-aux"><i class="icon-warning-sign"></i><?php echo CUSTOM_SYSTOM_REQUIRED;?></span>
             </div>
         </div>

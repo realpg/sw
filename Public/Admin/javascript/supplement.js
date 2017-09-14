@@ -1,5 +1,6 @@
 function edit_password()
 {
+    var user_id=$("#user_id").text();
     var user_name=$("#user_name").val();
     var user_password=$("#user_password").val();
     var user_new_password=$("#user_new_password").val();
@@ -37,7 +38,7 @@ function edit_password()
     }
     else
     {
-        $.post("/sw/Admin/User/editDo",{"user_name":user_name,"user_password":user_password,"user_new_password":user_new_password,"code":code},function(data){
+        $.post("/sw/Admin/User/editDo",{"user_id":user_id,"user_name":user_name,"user_password":user_password,"user_new_password":user_new_password,"code":code},function(data){
             if(data.code=="1000")
             {
                 $('.mask,.dialog').show();

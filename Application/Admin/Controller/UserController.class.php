@@ -3,28 +3,78 @@ namespace Admin\Controller;
 use Admin\Common\CommonController;
 //use Think\Controller;
 class UserController extends CommonController{
+    public function index()
+    {
+        $USER_DB=D("User");
+        $p=I("p",1);  //当前页数
+        $searchname=I("searchname","");  //搜索关键字
+        $parameter_user_select=array(
+            "where"=>array(
+                "user_name"=>array("like","%".$searchname."%")
+            )
+        );
+        $user_rows=$USER_DB->scope("user_select",$parameter_user_select)->limit(($p-1)*CUSTOM_PAGING,CUSTOM_PAGING)->select();
+        $user_count=count($USER_DB->scope("user_select",$parameter_user_select)->select());
+        $user_page = new \Think\Page($user_count,CUSTOM_PAGING);// 实例化分页类
+        $page_show = $user_page->show();// 分页显示输出
+
+        $this->assign('user_rows',$user_rows);// 赋值数据集
+        $this->assign('user_count',$user_count);
+        $this->assign('user_page',$user_page);
+        $this->assign('page_show',$page_show);// 赋值分页输出
+        $this->assign('searchname',$searchname==""?"搜索用户...":$searchname);// 当前搜索
+        $this->display(); // 输出模板
+    }
     public function edit()
     {
+        $USER_DB=D("User");
+        $user=$_SESSION["user"];
+        $user_id=I("user_id",$user["user_id"]);
+        $parameter_user_byid=array(
+            "where"=>array("user_id"=>$user_id)
+        );
+        $user_row=$USER_DB->scope("find_user_byid",$parameter_user_byid)->find();
+        $this->assign("user_row",$user_row);
         $this->display();
     }
     public function editDo()
     {
         $USER_DB=D("User");
+        $user_id=I("user_id");
         $user_name=I("user_name");
         $user_password=I("user_password");
         $user_new_password=I("user_new_password");
         $code=I("code");
         if($this->check_verify($code))
         {
-            //检测用户是否存在
-            $parameter_user_checkname=array(
-                "where"=>array("user_name"=>$user_name)
+            //判断用户名是否修改
+            $judge=false; //作为是否可以修改用户信息的参数
+            $parameter_user_byid=array(
+                "where"=>array("user_id"=>$user_id)
             );
-            $user_row=$USER_DB->scope("check_name",$parameter_user_checkname)->find();
-            if(!$user_row)
+            $user_list=$USER_DB->scope("find_user_byid",$parameter_user_byid)->find();
+            if($user_list["user_name"]==$user_name)
             {
-                $user=$_SESSION["user"];
-                $user_id=$user["user_id"];
+                $judge=true;
+            }
+            else
+            {
+                //检测用户是否存在
+                $parameter_user_checkname=array(
+                    "where"=>array("user_name"=>$user_name)
+                );
+                $user_row=$USER_DB->scope("check_name",$parameter_user_checkname)->find();
+                if(!$user_row)
+                {
+                    $judge=true;
+                }
+                else
+                {
+                    $judge=false;
+                }
+            }
+            if($judge)
+            {
                 $user_password=md5($user_password); //对密码进行加密
                 //检测密码
                 $parameter_user_checkpassword=array(
