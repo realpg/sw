@@ -35,7 +35,7 @@
 
     <nav class="side-menu content mCustomScrollbar" data-mcs-theme="minimal-dark">
         <h2>
-            <a href="<?php echo U('Admin/Index/index');?>" class="InitialPage"><i class="icon-home"></i><?php echo CUSTOM_SYSTOM_HOME;?></a>
+            <a href="<?php echo U('Admin/Home/index');?>" class="InitialPage"><i class="icon-home"></i><?php echo CUSTOM_SYSTOM_HOME;?></a>
         </h2>
         <ul>
             <li>
@@ -100,34 +100,49 @@
             </header>
             <hr>
         </section>
+        <div class="fl">
+            <a href="<?php echo U('Admin/User/add');?>" title="<?php echo CUSTOM_SYSTOM_ADD;?>" class="mr-5">
+                <button class="btn btn-warning"><i class="icon-plus"></i>添加</button>
+            </a>
+            <button class="btn btn-danger" id="button_delete" onclick="deleteDo()"><i class="icon-trash"></i>批量删除</button>
+        </div>
         <div class="fr input-group mb-15">
-            <form action="/sw/Admin/User/index" method="get">
-                <input name="searchname" type="text" type="searchname" placeholder="<?php echo ($searchname); ?>" class="form-control form-boxed" style="width:auto;">
-                <input name="bar_id" type="hidden" class="form-control" value="<?php echo ($bar_row["id"]); ?>" style="width:290px;">
-                <button class="btn btn-secondary">搜索</button>
+            <form action="<?php echo U('Admin/User/index');?>" method="get">
+                <input name="searchname" type="text" type="searchname" placeholder="<?php echo ($searchname); ?>" class="form-control form-boxed" style="width:290px;">
+                <button class="btn btn-primary">搜索</button>
             </form>
         </div>
         <p class="title-description"></p>
-        <table class="table table-bordered table-striped table-hover">
-            <thead>
-            <tr>
-                <th width="10%">序号</th>
-                <th>用户</th>
-                <th>密码</th>
-                <th width="10%">操作</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php if(is_array($user_rows)): $i = 0; $__LIST__ = $user_rows;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$user_row): $mod = ($i % 2 );++$i;?><tr class="cen">
-                    <td><?php echo ($i); ?></td>
-                    <td><?php echo ($user_row["user_name"]); ?></td>
-                    <td><?php echo ($user_row["user_password"]); ?></td>
-                    <td>
-                        <a href="<?php echo U('Admin/User/edit',array('user_id'=>$user_row[user_id]));?>" title="<?php echo CUSTOM_SYSTOM_EDIT;?>" class="mr-5"><?php echo CUSTOM_SYSTOM_EDIT;?></a>
-                    </td>
-                </tr><?php endforeach; endif; else: echo "" ;endif; ?>
-            </tbody>
-        </table>
+        <form action="<?php echo U('Admin/User/delete');?>" method="post" id="table_data">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                <tr>
+                    <th width="10%">
+                        <input type="checkbox"  name="mmAll" onclick="All(this, 'mm[]')">
+                    </th>
+                    <th width="10%">序号</th>
+                    <th>用户</th>
+                    <th>密码</th>
+                    <th width="10%">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php if(is_array($user_rows)): $i = 0; $__LIST__ = $user_rows;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$user_row): $mod = ($i % 2 );++$i;?><tr class="cen">
+                        <td>
+                            <?php if(($user_row["user_id"]) == "1"): ?>--
+                            <?php else: ?>
+                                <input type="checkbox" name="mm[]" value="<?php echo ($user_row["user_id"]); ?>" onclick="Item(this, 'mmAll')"><?php endif; ?>
+                        </td>
+                        <td><?php echo ($i); ?></td>
+                        <td><?php echo ($user_row["user_name"]); ?></td>
+                        <td>***********************</td>
+                        <td>
+                            <a href="<?php echo U('Admin/User/edit',array('user_id'=>$user_row[user_id]));?>" title="<?php echo CUSTOM_SYSTOM_EDIT;?>" class="mr-5"><?php echo CUSTOM_SYSTOM_EDIT;?></a>
+                        </td>
+                    </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+                </tbody>
+            </table>
+        </form>
         <?php if(empty($user_rows)): ?><div class="panel panel-default">
                 <div class="panel-bd text-center">
                     <?php echo CUSTOM_MESSAGE_NODATA;?>

@@ -1,5 +1,5 @@
 ﻿# Host: 127.0.0.1  (Version: 5.5.5-10.1.8-MariaDB)
-# Date: 2017-09-13 18:29:44
+# Date: 2017-09-15 11:37:49
 # Generator: MySQL-Front 5.3  (Build 4.271)
 
 /*!40101 SET NAMES utf8 */;
@@ -68,10 +68,10 @@ CREATE TABLE `user` (
   `user_name` varchar(255) DEFAULT NULL COMMENT '标题',
   `user_password` varchar(255) DEFAULT NULL COMMENT '密码',
   PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户表';
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 #
 # Data for table "user"
 #
 
-INSERT INTO `user` VALUES (1,'admin','21232f297a57a5a743894a0e4a801fc3');
+INSERT INTO `user` VALUES (1,'admin','21232f297a57a5a743894a0e4a801fc3'),(10,'test','098f6bcd4621d373cade4e832627b4f6');

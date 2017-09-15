@@ -7,36 +7,53 @@
             </header>
             <hr>
         </section>
+        <div class="fl">
+            <a href="{:U('Admin/User/add')}" title="{:CUSTOM_SYSTOM_ADD}" class="mr-5">
+                <button class="btn btn-warning"><i class="icon-plus"></i>添加</button>
+            </a>
+            <button class="btn btn-danger" id="button_delete" onclick="deleteDo()"><i class="icon-trash"></i>批量删除</button>
+        </div>
         <div class="fr input-group mb-15">
-            <form action="/sw/Admin/User/index" method="get">
-                <input name="searchname" type="text" type="searchname" placeholder="{$searchname}" class="form-control form-boxed" style="width:auto;">
-                <input name="bar_id" type="hidden" class="form-control" value="{$bar_row.id}" style="width:290px;">
-                <button class="btn btn-secondary">搜索</button>
+            <form action="{:U('Admin/User/index')}" method="get">
+                <input name="searchname" type="text" type="searchname" placeholder="{$searchname}" class="form-control form-boxed" style="width:290px;">
+                <button class="btn btn-primary">搜索</button>
             </form>
         </div>
         <p class="title-description"></p>
-        <table class="table table-bordered table-striped table-hover">
-            <thead>
-            <tr>
-                <th width="10%">序号</th>
-                <th>用户</th>
-                <th>密码</th>
-                <th width="10%">操作</th>
-            </tr>
-            </thead>
-            <tbody>
-            <volist name="user_rows" id="user_row">
-                <tr class="cen">
-                    <td>{$i}</td>
-                    <td>{$user_row.user_name}</td>
-                    <td>{$user_row.user_password}</td>
-                    <td>
-                        <a href="{:U('Admin/User/edit',array('user_id'=>$user_row[user_id]))}" title="{:CUSTOM_SYSTOM_EDIT}" class="mr-5">{:CUSTOM_SYSTOM_EDIT}</a>
-                    </td>
+        <form action="{:U('Admin/User/delete')}" method="post" id="table_data">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                <tr>
+                    <th width="10%">
+                        <input type="checkbox"  name="mmAll" onclick="All(this, 'mm[]')">
+                    </th>
+                    <th width="10%">序号</th>
+                    <th>用户</th>
+                    <th>密码</th>
+                    <th width="10%">操作</th>
                 </tr>
-            </volist>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                <volist name="user_rows" id="user_row">
+                    <tr class="cen">
+                        <td>
+                            <eq name="user_row.user_id" value="1">
+                                --
+                            <else />
+                                <input type="checkbox" name="mm[]" value="{$user_row.user_id}" onclick="Item(this, 'mmAll')">
+                            </eq>
+                        </td>
+                        <td>{$i}</td>
+                        <td>{$user_row.user_name}</td>
+                        <td>***********************</td>
+                        <td>
+                            <a href="{:U('Admin/User/edit',array('user_id'=>$user_row[user_id]))}" title="{:CUSTOM_SYSTOM_EDIT}" class="mr-5">{:CUSTOM_SYSTOM_EDIT}</a>
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+            </table>
+        </form>
         <empty name="user_rows">
             <div class="panel panel-default">
                 <div class="panel-bd text-center">

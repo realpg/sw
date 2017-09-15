@@ -54,6 +54,48 @@ function edit_password()
         },"json")
     }
 }
+function add_user()
+{
+    var user_name=$("#user_name").val();
+    var user_password=$("#user_password").val();
+    var user_confirm_password=$("#user_confirm_password").val();
+    if(user_name=="")
+    {
+        $('.mask,.dialog').show();
+        $('.dialog .dialog-bd p').html('请输入用户名');
+    }
+    else if(user_password=="")
+    {
+        $('.mask,.dialog').show();
+        $('.dialog .dialog-bd p').html('请输入密码');
+    }
+    else if(user_confirm_password=="")
+    {
+        $('.mask,.dialog').show();
+        $('.dialog .dialog-bd p').html('请输入确认密码');
+    }
+    else if(user_password!=user_confirm_password)
+    {
+        $('.mask,.dialog').show();
+        $('.dialog .dialog-bd p').html('两次输入的密码不一致');
+    }
+    else
+    {
+        $.post("/sw/Admin/User/addDo",{"user_name":user_name,"user_password":user_password},function(data){
+            if(data.code=="1000")
+            {
+                $('.mask,.dialog').show();
+                $('.dialog .dialog-bd p').html('操作成功');
+                $('.dialog .dialog-ft').html("<a href='/sw/Admin/User/index'><button class='btn btn-info JyesBtn'>确认</button></a>")
+            }
+            else
+            {
+                $('.mask,.dialog').show();
+                $('.dialog .dialog-bd p').html(data.message);
+            }
+        },"json")
+    }
+}
 function All(e, itemName)
 {
     var aa = document.getElementsByName(itemName);
@@ -91,7 +133,11 @@ function batch_delete()
         $("#batchdelete").submit();
     }
 }
+function deleteDo()
+{
+    $("#table_data").submit();
 
+}
 function delayed_dialog(data,time)
 {
     var text="";

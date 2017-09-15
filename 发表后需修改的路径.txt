@@ -1,13 +1,14 @@
-1.Application/Admin/View/Index/index.html    33行  /sw/Admin/Verify/verify
-2.Application/Admin/Common/CommonController.class.php   13行  $this->error('警告！非法操作：登录超时或用户已被清除，请重新先登录！跳转中...',"/sw/admin.html",5);
-3.Application/Admin/Common/CommonController.class.php   24行  $this->error('警告！非法操作：请先登录！跳转中...',"/sw/admin.html",5);
-4.Public/Admin/javascript/pages/login.js     20行  $.post("../sw/Admin/Index/login",{"user_id":user_id,"user_password":user_password,"code":code},function(data)
-5.Public/Admin/javascript/pages/login.js     23行  location.href="../sw/Admin/Home/index";
-6.Public/Admin/javascript/pages/login.js     30行  $("#verify").attr("src","/sw/Admin/Verify/verify");
-7.Public/Admin/javascript/public.js     100行  location.href =  '/sw/Admin/Index/unsetsession';
-8.Public/Admin/javascript/public.js     109行  $.post("/sw/Admin/Index/clearruntime",function(data){
-9.Application/Admin/View/User/index.html    30行  <img src="/sw/Admin/Verify/verify" width="100px" height="32px" id="verify"  onclick="this.src=this.src+'?'+Math.random();" />
-10.Public/Admin/javascript/supplement.js     34行  $.post("/sw/Admin/User/editDo",{"user_password":user_password,"user_new_password":user_new_password,"code":code},function(data){
-11.Public/Admin/javascript/supplement.js     39行  $('.dialog .dialog-ft').html("<a href='/sw/Admin'><button class='btn btn-info JyesBtn'>确认</button></a>")
-12.Public/Admin/javascript/supplement.js     46行  $("#verify").attr("src","/sw/Admin/Verify/verify");
-13.Application/Admin/View/User/index.html    11行 <form action="/sw/Admin/User/index" method="get">
+1.Application/Admin/Common/CommonController.class.php   13行  $this->error('警告！非法操作：登录超时或用户已被清除，请重新先登录！跳转中...',"/sw/admin.html",5);
+2.Application/Admin/Common/CommonController.class.php   24行  $this->error('警告！非法操作：请先登录！跳转中...',"/sw/admin.html",5);
+3.Public/Admin/javascript/pages/login.js     20行  $.post("../sw/Admin/Index/login",{"user_id":user_id,"user_password":user_password,"code":code},function(data)
+4.Public/Admin/javascript/pages/login.js     23行  location.href="../sw/Admin/Home/index";
+5.Public/Admin/javascript/pages/login.js     30行  $("#verify").attr("src","/sw/Admin/Verify/verify");
+6.Public/Admin/javascript/public.js     100行  location.href =  '/sw/Admin/Index/unsetsession';
+7.Public/Admin/javascript/public.js     109行  $.post("/sw/Admin/Index/clearruntime",function(data){
+8.Public/Admin/javascript/supplement.js     34行  $.post("/sw/Admin/User/editDo",{"user_password":user_password,"user_new_password":user_new_password,"code":code},function(data){
+9.Public/Admin/javascript/supplement.js     39行  $('.dialog .dialog-ft').html("<a href='/sw/Admin'><button class='btn btn-info JyesBtn'>确认</button></a>")
+10.Public/Admin/javascript/supplement.js     41行   $.post("/sw/Admin/User/editDo",{"user_id":user_id,"user_name":user_name,"user_password":user_password,"user_new_password":user_new_password,"code":code},function(data){
+11.Public/Admin/javascript/supplement.js     46行  $('.dialog .dialog-ft').html("<a href='/sw/Admin'><button class='btn btn-info JyesBtn'>确认</button></a>")
+12.Public/Admin/javascript/supplement.js     53行  $("#verify").attr("src","/sw/Admin/Verify/verify");
+13.Public/Admin/javascript/supplement.js     84行  $.post("/sw/Admin/User/addDo",{"user_name":user_name,"user_password":user_password},function(data){
+14.Public/Admin/javascript/supplement.js     89行  $('.dialog .dialog-ft').html("<a href='/sw/Admin/User/index'><button class='btn btn-info JyesBtn'>确认</button></a>")

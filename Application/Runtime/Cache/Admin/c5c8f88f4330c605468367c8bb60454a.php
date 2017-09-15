@@ -35,7 +35,7 @@
 
     <nav class="side-menu content mCustomScrollbar" data-mcs-theme="minimal-dark">
         <h2>
-            <a href="<?php echo U('Admin/Index/index');?>" class="InitialPage"><i class="icon-home"></i><?php echo CUSTOM_SYSTOM_HOME;?></a>
+            <a href="<?php echo U('Admin/Home/index');?>" class="InitialPage"><i class="icon-home"></i><?php echo CUSTOM_SYSTOM_HOME;?></a>
         </h2>
         <ul>
             <li>
@@ -128,7 +128,7 @@
             <div class="form-label">验证码：</div>
             <div class="form-cont">
                 <input type="text" class="form-control form-boxed" style="width:100px;" name="code" id="code" />
-                <img src="/sw/Admin/Verify/verify" width="100px" height="32px" id="verify"  onclick="this.src=this.src+'?'+Math.random();" />
+                <img src="<?php echo U('Admin/Verify/verify');?>" width="100px" height="32px" id="verify"  onclick="this.src=this.src+'?'+Math.random();" />
             </div>
         </div>
         <div class="form-group-col-2">

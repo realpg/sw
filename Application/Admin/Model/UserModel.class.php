@@ -30,7 +30,7 @@ class UserModel extends RelationModel{
             "field"=>array("user_id","user_name","user_password"),
             "where"=>array(
                 "user_name"=>array("like","%%")
-            )
+            ),
         ),
         //根据id获取用户
         "find_user_byid"=>array(
