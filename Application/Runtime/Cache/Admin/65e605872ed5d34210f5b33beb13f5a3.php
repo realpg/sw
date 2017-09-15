@@ -51,6 +51,16 @@
                     </dd>
                 </dl>
             <li>
+            <li>
+                <dl>
+                    <dt>
+                        <i class="icon-user"></i>频道管理<i class="icon-angle-right"></i>
+                    </dt>
+                    <dd>
+                        <a href="">修改密码</a>
+                    </dd>
+                </dl>
+            <li>
             <!--<?php if(is_array($backstage_rows)): $k = 0; $__LIST__ = $backstage_rows;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$backstage_row): $mod = ($k % 2 );++$k;?>-->
                 <!--<li>-->
                     <!--<dl>-->
