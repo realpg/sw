@@ -100,25 +100,41 @@
     <div class="page-wrap">
         <section class="page-hd">
             <header>
-                <h2 class="title"><i class="icon-home"></i>后台系统首页</h2>
+                <h2 class="title">添加频道</h2>
             </header>
             <hr>
         </section>
-        <div class="panel panel-default">
-            <div class="panel-bd capitalize">
-                浏览器兼容：google chrome、microsoft edge、360浏览器、火狐浏览器、uc浏览器等高版本浏览器。
+        <div class="form-group-col-2">
+            <div class="form-label">标题：</div>
+            <div class="form-cont">
+                <input type="text" class="form-control form-boxed width-30" name="channel_title" id="channel_title" />
+                <span class="word-aux"><i class="icon-warning-sign"></i><?php echo CUSTOM_SYSTOM_REQUIRED;?></span>
             </div>
         </div>
-        <div class="flow-layout col-3">
-            <ul>
-                <?php if(is_array($info)): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$info): $mod = ($i % 2 );++$i;?><li class="child-wrap">
-                        <div class="panel panel-default">
-                            <div class="panel-bd">
-                                <?php echo ($key); ?>:<?php echo ($info); ?>
-                            </div>
-                        </div>
-                    </li><?php endforeach; endif; else: echo "" ;endif; ?>
-            </ul>
+        <div class="form-group-col-2">
+            <div class="form-label">排序：</div>
+            <div class="form-cont">
+                <input type="text" class="form-control form-boxed width-30" name="channel_sort" id="channel_sort" />
+                <span class="word-aux"><i class="icon-warning-sign"></i><?php echo CUSTOM_SYSTOM_ORDER;?></span>
+            </div>
+        </div>
+        <div class="form-group-col-2">
+            <div class="form-label">是否显示：</div>
+            <label class="radio">
+                <input type="radio" name="channel_show" checked />
+                <span>显示</span>
+            </label>
+            <label class="radio">
+                <input type="radio" name="channel_show" />
+                <span>隐藏</span>
+            </label>
+        </div>
+        <div class="form-group-col-2">
+            <div class="form-label"></div>
+            <div class="form-cont">
+                <input type="submit" class="btn btn-primary" value="<?php echo CUSTOM_SYSTOM_PUTIN;?>" onclick="add_channel()" />
+                <button onclick="javascript:window.history.back(-1);" class="btn btn-primary-outline"><?php echo CUSTOM_SYSTOM_BACK;?></button>
+            </div>
         </div>
     </div>
 
@@ -139,6 +155,24 @@
         
     </div>
 </div>
+
+    
+    <div class="mask"></div>
+<div class="dialog">
+	<div class="dialog-hd">
+		<strong class="lt-title"><?php echo CUSTOM_SYSTOM_BAR;?></strong>
+		<a class="rt-operate icon-remove JclosePanel" title="<?php echo CUSTOM_SYSTOM_COLSE;?>"></a>
+	</div>
+	<div class="dialog-bd"><p></p></div>
+	<div class="dialog-ft">
+		<button class="btn btn-info JyesBtn"><?php echo CUSTOM_SYSTOM_CONFIRM;?></button>
+		<button class="btn btn-secondary JnoBtn"><?php echo CUSTOM_SYSTOM_COLSE;?></button>
+	</div>
+</div>
+<dialog class="automatic">
+	<span class="icon-volume-down"></span>
+</dialog>
+    
 
 </body>
 </html>

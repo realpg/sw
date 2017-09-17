@@ -54,29 +54,23 @@
             <li>
                 <dl>
                     <dt>
-                        <i class="icon-user"></i>频道管理<i class="icon-angle-right"></i>
+                        <i class="icon-cog"></i>基本信息管理<i class="icon-angle-right"></i>
                     </dt>
                     <dd>
-                        <a href="">修改密码</a>
+                        <a href="<?php echo U('Admin/Base/edit');?>">修改基本信息</a>
                     </dd>
                 </dl>
             <li>
-            <!--<?php if(is_array($backstage_rows)): $k = 0; $__LIST__ = $backstage_rows;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$backstage_row): $mod = ($k % 2 );++$k;?>-->
-                <!--<li>-->
-                    <!--<dl>-->
-                        <!--<dt>-->
-                            <!--<i class="icon-book"></i><?php echo ($backstage_row["name"]); ?><i class="icon-angle-right"></i>-->
-                        <!--</dt>-->
-                        <!--<dd>-->
-                            <!--<a href="<?php echo U('Admin/Book/index',array('bar_id'=>$backstage_row[id]));?>"><?php echo ($backstage_row["son"]["book"]); ?></a>-->
-                        <!--</dd>-->
-                        <!--<dd>-->
-                            <!--&lt;!&ndash;<a href="/Admin/Statistics/index?bar_id=<?php echo ($backstage_row["id"]); ?>"><?php echo ($backstage_row["son"]["statistics"]); ?></a>&ndash;&gt;-->
-                            <!--<a href="<?php echo U('Admin/Statistics/index',array('bar_id'=>$backstage_row[id]));?>"><?php echo ($backstage_row["son"]["statistics"]); ?></a>-->
-                        <!--</dd>-->
-                    <!--</dl>-->
-                <!--<li>-->
-            <!--<?php endforeach; endif; else: echo "" ;endif; ?>-->
+            <li>
+                <dl>
+                    <dt>
+                        <i class="icon-play"></i>频道管理<i class="icon-angle-right"></i>
+                    </dt>
+                    <dd>
+                        <a href="<?php echo U('Admin/Channel/index');?>">频道管理</a>
+                    </dd>
+                </dl>
+            <li>
         </ul>
     </nav>
 </div>

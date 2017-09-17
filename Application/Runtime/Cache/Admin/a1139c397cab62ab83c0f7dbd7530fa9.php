@@ -71,6 +71,16 @@
                     </dd>
                 </dl>
             <li>
+            <li>
+                <dl>
+                    <dt>
+                        <i class="icon-play"></i>视频管理<i class="icon-angle-right"></i>
+                    </dt>
+                    <dd>
+                        <a href="<?php echo U('Admin/Video/index');?>">视频管理</a>
+                    </dd>
+                </dl>
+            <li>
         </ul>
     </nav>
 </div>
@@ -100,26 +110,67 @@
     <div class="page-wrap">
         <section class="page-hd">
             <header>
-                <h2 class="title"><i class="icon-home"></i>后台系统首页</h2>
+                <h2 class="title"><i class="icon-table"></i>频道列表</h2>
             </header>
             <hr>
         </section>
-        <div class="panel panel-default">
-            <div class="panel-bd capitalize">
-                浏览器兼容：google chrome、microsoft edge、360浏览器、火狐浏览器、uc浏览器等高版本浏览器。
-            </div>
+        <div class="fl">
+            <a href="<?php echo U('Admin/Channel/add');?>" title="<?php echo CUSTOM_SYSTOM_ADD;?>" class="mr-5">
+                <button class="btn btn-warning"><i class="icon-plus"></i>添加</button>
+            </a>
+            <button class="btn btn-danger" id="button_delete" onclick="deleteDo()"><i class="icon-trash"></i>批量删除</button>
         </div>
-        <div class="flow-layout col-3">
-            <ul>
-                <?php if(is_array($info)): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$info): $mod = ($i % 2 );++$i;?><li class="child-wrap">
-                        <div class="panel panel-default">
-                            <div class="panel-bd">
-                                <?php echo ($key); ?>:<?php echo ($info); ?>
-                            </div>
-                        </div>
-                    </li><?php endforeach; endif; else: echo "" ;endif; ?>
-            </ul>
+        <div class="fr input-group mb-15">
+            <form action="<?php echo U('Admin/Channel/index');?>" method="get">
+                <input name="searchname" type="text" type="searchname" placeholder="<?php echo ($searchname); ?>" class="form-control form-boxed" style="width:290px;">
+                <button class="btn btn-primary">搜索</button>
+            </form>
         </div>
+        <p class="title-description"></p>
+        <form action="<?php echo U('Admin/Channel/delete');?>" method="post" id="table_data">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                <tr>
+                    <th width="10%">
+                        <input type="checkbox"  name="mmAll" onclick="All(this, 'mm[]')">
+                    </th>
+                    <th width="10%">序号</th>
+                    <th>标题</th>
+                    <th>状态</th>
+                    <th width="10%">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php if(is_array($channel_rows)): $i = 0; $__LIST__ = $channel_rows;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel_row): $mod = ($i % 2 );++$i;?><tr class="cen">
+                        <td>
+                            <input type="checkbox" name="mm[]" value="<?php echo ($channel_row["channel_id"]); ?>" onclick="Item(this, 'mmAll')">
+                        </td>
+                        <td><?php echo ($i); ?></td>
+                        <td><?php echo ($channel_row["channel_title"]); ?></td>
+                        <td>
+                            <?php if(($channel_row["channel_show"]) == "1"): ?>显示
+                            <?php else: ?>
+                                隐藏<?php endif; ?>
+                        </td>
+                        <td>
+                            <a href="<?php echo U('Admin/Channel/edit',array('channel_id'=>$channel_row[channel_id]));?>" title="<?php echo CUSTOM_SYSTOM_EDIT;?>" class="mr-5"><?php echo CUSTOM_SYSTOM_EDIT;?></a>
+                        </td>
+                    </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+                </tbody>
+            </table>
+        </form>
+        <?php if(empty($channel_rows)): ?><div class="panel panel-default">
+                <div class="panel-bd text-center">
+                    <?php echo CUSTOM_MESSAGE_NODATA;?>
+                </div>
+            </div><?php endif; ?>
+        <?php if($channel_count > CUSTOM_PAGING): ?><div class="panel panel-default">
+                <div class="panel-bd">
+                    <div class='pagination'>
+                    <?php echo ($page_show); ?>
+                    </div>
+                </div>
+            </div><?php endif; ?>
     </div>
 
             <!--开始::结束-->

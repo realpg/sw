@@ -23,25 +23,6 @@ class CommonController extends Controller{
                 {
                     $this->error('警告！非法操作：请先登录！跳转中...',"/sw/admin.html",5);
                 }
-//                else
-//                {
-//                    //加载目录
-//                    $BarInfo=D("BarInfo");
-//                    $parameter_barinfo_manage=array(
-//                        "where"=>array(
-//                            "b.user_id"=>$user["id"],
-//                            "a.id=b.bar_id"
-//                        )
-//                    );
-//                    $backstage_rows=$BarInfo->scope("bar_manage",$parameter_barinfo_manage)->select();
-//                    foreach( $backstage_rows as $v=>$backstage_row)
-//                    {
-//                        $array["book"]="图书信息查询";
-//                        $array["statistics"]="数据统计";
-//                        $backstage_rows[$v][son]=$array;
-//                    }
-//                    $this->assign("backstage_rows",$backstage_rows);
-//                }
             }
         }
 

@@ -33,29 +33,33 @@
             <li>
                 <dl>
                     <dt>
-                        <i class="icon-user"></i>频道管理<i class="icon-angle-right"></i>
+                        <i class="icon-cog"></i>基本信息管理<i class="icon-angle-right"></i>
                     </dt>
                     <dd>
-                        <a href="">修改密码</a>
+                        <a href="{:U('Admin/Base/edit')}">修改基本信息</a>
                     </dd>
                 </dl>
             <li>
-            <!--<volist name="backstage_rows" id="backstage_row" key="k">-->
-                <!--<li>-->
-                    <!--<dl>-->
-                        <!--<dt>-->
-                            <!--<i class="icon-book"></i>{$backstage_row.name}<i class="icon-angle-right"></i>-->
-                        <!--</dt>-->
-                        <!--<dd>-->
-                            <!--<a href="{:U('Admin/Book/index',array('bar_id'=>$backstage_row[id]))}">{$backstage_row.son.book}</a>-->
-                        <!--</dd>-->
-                        <!--<dd>-->
-                            <!--&lt;!&ndash;<a href="/Admin/Statistics/index?bar_id={$backstage_row.id}">{$backstage_row.son.statistics}</a>&ndash;&gt;-->
-                            <!--<a href="{:U('Admin/Statistics/index',array('bar_id'=>$backstage_row[id]))}">{$backstage_row.son.statistics}</a>-->
-                        <!--</dd>-->
-                    <!--</dl>-->
-                <!--<li>-->
-            <!--</volist>-->
+            <li>
+                <dl>
+                    <dt>
+                        <i class="icon-play"></i>频道管理<i class="icon-angle-right"></i>
+                    </dt>
+                    <dd>
+                        <a href="{:U('Admin/Channel/index')}">频道管理</a>
+                    </dd>
+                </dl>
+            <li>
+            <li>
+                <dl>
+                    <dt>
+                        <i class="icon-play"></i>视频管理<i class="icon-angle-right"></i>
+                    </dt>
+                    <dd>
+                        <a href="{:U('Admin/Program/index')}">视频管理</a>
+                    </dd>
+                </dl>
+            <li>
         </ul>
     </nav>
 </div>

@@ -1,5 +1,5 @@
 <?php
-define("CUSTOM_PAGING", 6);  //分页后单页显示的数量
+define("CUSTOM_PAGING", 7);  //分页后单页显示的数量
 define("CUSTOM_p_1", 8);
 define("CUSTOM_p_2", 6);
 define("CUSTOM_p_length", 16);
@@ -19,6 +19,7 @@ define("CUSTOM_SYSTOM_COLSE", "关闭");
 define("CUSTOM_SYSTOM_PUTIN", "提交");
 define("CUSTOM_SYSTOM_BACK", "返回");
 define("CUSTOM_SYSTOM_REQUIRED", "不准为空");
+define("CUSTOM_SYSTOM_ORDER", "越大越靠前");
 define("CUSTOM_SYSTOM_SUCCESS", "成功");
 define("CUSTOM_SYSTOM_FAIL", "失败");
 define("CUSTOM_SYSTOM_LOGIN", "登录");

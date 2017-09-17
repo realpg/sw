@@ -96,6 +96,81 @@ function add_user()
         },"json")
     }
 }
+function edit_base()
+{
+    var base_title=$("#base_title").val();
+    var base_copyright=$("#base_copyright").val();
+    var base_record=$("#base_record").val();
+    $.post("/sw/Admin/Base/editDo",{"base_title":base_title,"base_copyright":base_copyright,"base_record":base_record},function(data){
+        if(data.code=="1000")
+        {
+            $('.mask,.dialog').show();
+            $('.dialog .dialog-bd p').html('修改成功');
+            $('.dialog .dialog-ft').html("<a href='/sw/Admin/Base/edit'><button class='btn btn-info JyesBtn'>确认</button></a>")
+        }
+        else
+        {
+            $('.mask,.dialog').show();
+            $('.dialog .dialog-bd p').html(data.message);
+        }
+    })
+}
+function edit_channel()
+{
+    var channel_id=$("#channel_id").text();
+    var channel_title=$("#channel_title").val();
+    var channel_sort=$("#channel_sort").val()==""?0:$("#channel_sort").val();
+    var channel_show=$("input[name='channel_show']:checked").val();
+    if(channel_title=="")
+    {
+        $('.mask,.dialog').show();
+        $('.dialog .dialog-bd p').html('请输入标题');
+    }
+    else
+    {
+        $.post("/sw/Admin/Channel/editDo",{"channel_id":channel_id,"channel_title":channel_title,"channel_sort":channel_sort,"channel_show":channel_show},function(data){
+            if(data.code=="1000")
+            {
+                $('.mask,.dialog').show();
+                $('.dialog .dialog-bd p').html('编辑成功');
+                $('.dialog .dialog-ft').html("<a href='/sw/Admin/Channel/index'><button class='btn btn-info JyesBtn'>确认</button></a>")
+            }
+            else
+            {
+                $('.mask,.dialog').show();
+                $('.dialog .dialog-bd p').html(data.message);
+            }
+        },"json")
+    }
+}
+function add_channel()
+{
+    var channel_id=$("#channel_id").text();
+    var channel_title=$("#channel_title").val();
+    var channel_sort=$("#channel_sort").val()==""?0:$("#channel_sort").val();
+    var channel_show=$("input[name='channel_show']:checked").val();
+    if(channel_title=="")
+    {
+        $('.mask,.dialog').show();
+        $('.dialog .dialog-bd p').html('请输入标题');
+    }
+    else
+    {
+        $.post("/sw/Admin/Channel/addDo",{"channel_id":channel_id,"channel_title":channel_title,"channel_sort":channel_sort,"channel_show":channel_show},function(data){
+            if(data.code=="1000")
+            {
+                $('.mask,.dialog').show();
+                $('.dialog .dialog-bd p').html('添加成功');
+                $('.dialog .dialog-ft').html("<a href='/sw/Admin/Channel/index'><button class='btn btn-info JyesBtn'>确认</button></a>")
+            }
+            else
+            {
+                $('.mask,.dialog').show();
+                $('.dialog .dialog-bd p').html(data.message);
+            }
+        },"json")
+    }
+}
 function All(e, itemName)
 {
     var aa = document.getElementsByName(itemName);

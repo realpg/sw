@@ -1,0 +1,43 @@
+<extend name="Include:base" />
+<block name="main">
+    <div class="page-wrap">
+        <section class="page-hd">
+            <header>
+                <h2 class="title">添加频道</h2>
+            </header>
+            <hr>
+        </section>
+        <div class="form-group-col-2">
+            <div class="form-label">标题：</div>
+            <div class="form-cont">
+                <input type="text" class="form-control form-boxed width-30" name="channel_title" id="channel_title" />
+                <span class="word-aux"><i class="icon-warning-sign"></i>{:CUSTOM_SYSTOM_REQUIRED}</span>
+            </div>
+        </div>
+        <div class="form-group-col-2">
+            <div class="form-label">排序：</div>
+            <div class="form-cont">
+                <input type="text" class="form-control form-boxed width-30" name="channel_sort" id="channel_sort" />
+                <span class="word-aux"><i class="icon-warning-sign"></i>{:CUSTOM_SYSTOM_ORDER}</span>
+            </div>
+        </div>
+        <div class="form-group-col-2">
+            <div class="form-label">是否显示：</div>
+            <label class="radio">
+                <input type="radio" name="channel_show" checked />
+                <span>显示</span>
+            </label>
+            <label class="radio">
+                <input type="radio" name="channel_show" />
+                <span>隐藏</span>
+            </label>
+        </div>
+        <div class="form-group-col-2">
+            <div class="form-label"></div>
+            <div class="form-cont">
+                <input type="submit" class="btn btn-primary" value="{:CUSTOM_SYSTOM_PUTIN}" onclick="add_channel()" />
+                <button onclick="javascript:window.history.back(-1);" class="btn btn-primary-outline">{:CUSTOM_SYSTOM_BACK}</button>
+            </div>
+        </div>
+    </div>
+</block>
