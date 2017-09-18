@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$base_row.base_title}</title>
+    <css href="__PUBLIC__/Mobile/css/index.css" />
+</head>
+<body>
+<div class="header">
+    <div class="top">
+        <img src="__PUBLIC__/Images/logo.png" class="logo" />
+    </div>
+    <div class="video">
+        <iframe height="500px" frameborder="0" width="100%" scrolling="no" marginheight="0" marginwidth="0" border="0" src="{$channel_link}"></iframe>
+        <div class="source">
+            视频来源：{$channel_link}
+        </div>
+    </div>
+    <div class="title">频道</div>
+</div>
+<div class="channel">
+    <ul>
+        <volist name="channel_rows" id="channel_row">
+            <a href="?id={$channel_row.channel_id}">
+                <if condition="$channel_row.channel_id eq $channel_id">
+                    <li style="background: #fff;">{$channel_row.channel_title}</li>
+                <else />
+                    <li>{$channel_row.channel_title}</li>
+                </if>
+            </a>
+        </volist>
+    </ul>
+</div>
+<div class="footer">{$base_row.base_copyright} {$base_row.base_record}</div>
+</body>
+</html>

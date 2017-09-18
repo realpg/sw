@@ -119,6 +119,8 @@ function edit_channel()
 {
     var channel_id=$("#channel_id").text();
     var channel_title=$("#channel_title").val();
+    var channel_link=$("#channel_link").val();
+    var channel_link=$("#channel_link_m").val();
     var channel_sort=$("#channel_sort").val()==""?0:$("#channel_sort").val();
     var channel_show=$("input[name='channel_show']:checked").val();
     if(channel_title=="")
@@ -128,7 +130,7 @@ function edit_channel()
     }
     else
     {
-        $.post("/sw/Admin/Channel/editDo",{"channel_id":channel_id,"channel_title":channel_title,"channel_sort":channel_sort,"channel_show":channel_show},function(data){
+        $.post("/sw/Admin/Channel/editDo",{"channel_id":channel_id,"channel_title":channel_title,"channel_link":channel_link,"channel_link_m":channel_link_m,"channel_sort":channel_sort,"channel_show":channel_show},function(data){
             if(data.code=="1000")
             {
                 $('.mask,.dialog').show();
@@ -146,6 +148,8 @@ function edit_channel()
 function add_channel()
 {
     var channel_title=$("#channel_title").val();
+    var channel_link=$("#channel_link").val();
+    var channel_link=$("#channel_link_m").val();
     var channel_sort=$("#channel_sort").val()==""?0:$("#channel_sort").val();
     var channel_show=$("input[name='channel_show']:checked").val();
     if(channel_title=="")
@@ -155,7 +159,7 @@ function add_channel()
     }
     else
     {
-        $.post("/sw/Admin/Channel/addDo",{"channel_title":channel_title,"channel_sort":channel_sort,"channel_show":channel_show},function(data){
+        $.post("/sw/Admin/Channel/addDo",{"channel_title":channel_title,"channel_link":channel_link,"channel_link_m":channel_link_m,"channel_sort":channel_sort,"channel_show":channel_show},function(data){
             if(data.code=="1000")
             {
                 $('.mask,.dialog').show();

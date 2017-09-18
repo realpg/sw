@@ -13,7 +13,7 @@ class ChannelController extends CommonController{
                 "channel_title"=>array("like","%".$searchname."%"),
             )
         );
-        $channel_rows=$CHANNEL_DB->scope("channel_select",$parameter_channel_select)->limit(($p-1)*CUSTOM_PAGING,CUSTOM_PAGING)->order("channel_sort desc,channel_id desc")->select();
+        $channel_rows=$CHANNEL_DB->scope("channel_select",$parameter_channel_select)->limit(($p-1)*CUSTOM_PAGING,CUSTOM_PAGING)->order("channel_sort desc,channel_id asc")->select();
         $channel_count=count($CHANNEL_DB->scope("channel_select",$parameter_channel_select)->select());
         $channel_page = new \Think\Page($channel_count,CUSTOM_PAGING);// 实例化分页类
         $page_show = $channel_page->show();// 分页显示输出
@@ -42,6 +42,8 @@ class ChannelController extends CommonController{
         $CHANNEL_DB=D("Channel");
         $channel_id=I("channel_id");
         $channel_title=I("channel_title");
+        $channel_link=I("channel_link");
+        $channel_link_m=I("channel_link_m");
         $channel_sort=I("channel_sort");
         $channel_show=I("channel_show");
         $data=array();
@@ -49,6 +51,8 @@ class ChannelController extends CommonController{
             "where"=>array(
                 "channel_id"=>$channel_id,
                 "channel_title"=>$channel_title,
+                "channel_link"=>$channel_link,
+                "channel_link_m"=>$channel_link_m,
                 "channel_sort"=>$channel_sort,
                 "channel_show"=>$channel_show
             )
@@ -74,12 +78,16 @@ class ChannelController extends CommonController{
     public function addDo(){
         $CHANNEL_DB=D("Channel");
         $channel_title=I("channel_title");
+        $channel_link=I("channel_link");
+        $channel_link_m=I("channel_link_m");
         $channel_sort=I("channel_sort");
         $channel_show=I("channel_show");
         $data=array();
         $parameter_channel_add=array(
             "where"=>array(
                 "channel_title"=>$channel_title,
+                "channel_link"=>$channel_link,
+                "channel_link_m"=>$channel_link_m,
                 "channel_sort"=>$channel_sort,
                 "channel_show"=>$channel_show
             )

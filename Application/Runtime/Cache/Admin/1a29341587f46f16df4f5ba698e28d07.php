@@ -71,16 +71,16 @@
                     </dd>
                 </dl>
             <li>
-            <li>
-                <dl>
-                    <dt>
-                        <i class="icon-play"></i>视频管理<i class="icon-angle-right"></i>
-                    </dt>
-                    <dd>
-                        <a href="<?php echo U('Admin/Program/index');?>">视频管理</a>
-                    </dd>
-                </dl>
-            <li>
+            <!--<li>-->
+                <!--<dl>-->
+                    <!--<dt>-->
+                        <!--<i class="icon-play"></i>视频管理<i class="icon-angle-right"></i>-->
+                    <!--</dt>-->
+                    <!--<dd>-->
+                        <!--<a href="<?php echo U('Admin/Program/index');?>">视频管理</a>-->
+                    <!--</dd>-->
+                <!--</dl>-->
+            <!--<li>-->
         </ul>
     </nav>
 </div>

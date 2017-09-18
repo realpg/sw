@@ -13,7 +13,7 @@ class ChannelModel extends RelationModel{
         ),
         //根据id获取用户
         "find_channel_byid"=>array(
-            "field"=>array("channel_id","channel_title","channel_sort","channel_show"),
+            "field"=>array("channel_id","channel_title","channel_link","channel_link_m","channel_sort","channel_show"),
             "where"=>array(
                 "channel_id"=>null
             )

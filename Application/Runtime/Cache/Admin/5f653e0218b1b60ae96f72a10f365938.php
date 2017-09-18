@@ -71,16 +71,16 @@
                     </dd>
                 </dl>
             <li>
-            <li>
-                <dl>
-                    <dt>
-                        <i class="icon-play"></i>视频管理<i class="icon-angle-right"></i>
-                    </dt>
-                    <dd>
-                        <a href="<?php echo U('Admin/Program/index');?>">视频管理</a>
-                    </dd>
-                </dl>
-            <li>
+            <!--<li>-->
+                <!--<dl>-->
+                    <!--<dt>-->
+                        <!--<i class="icon-play"></i>视频管理<i class="icon-angle-right"></i>-->
+                    <!--</dt>-->
+                    <!--<dd>-->
+                        <!--<a href="<?php echo U('Admin/Program/index');?>">视频管理</a>-->
+                    <!--</dd>-->
+                <!--</dl>-->
+            <!--<li>-->
         </ul>
     </nav>
 </div>
@@ -110,71 +110,63 @@
     <div class="page-wrap">
         <section class="page-hd">
             <header>
-                <h2 class="title">添加节目</h2>
+                <h2 class="title">编辑频道</h2>
             </header>
             <hr>
         </section>
+        <span hidden id="channel_id"><?php echo ($channel_row["channel_id"]); ?></span>
         <div class="form-group-col-2">
             <div class="form-label">标题：</div>
             <div class="form-cont">
-                <input type="text" class="form-control form-boxed width-30" name="program_title" id="program_title" />
+                <input type="text" value="<?php echo ($channel_row["channel_title"]); ?>" class="form-control form-boxed width-30" name="channel_title" id="channel_title" />
                 <span class="word-aux"><i class="icon-warning-sign"></i><?php echo CUSTOM_SYSTOM_REQUIRED;?></span>
             </div>
         </div>
         <div class="form-group-col-2">
-            <div class="form-label">频道：</div>
+            <div class="form-label">PC端直播链接：</div>
             <div class="form-cont">
-                <select name="program_level" id="program_level" style="width:auto;">
-                    <?php if(is_array($channel_rows)): $i = 0; $__LIST__ = $channel_rows;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel_row): $mod = ($i % 2 );++$i;?><option value="<?php echo ($channel_row["channel_id"]); ?>" ><?php echo ($channel_row["channel_title"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-                </select>
-            </div>
-        </div>
-        <div class="form-group-col-2">
-            <div class="form-label">视频：</div>
-            <div class="form-cont">
-                <input type="text" class="form-control form-boxed width-30" name="program_video" id="program_video" />
+                <input type="text" value="<?php echo ($channel_row["channel_link"]); ?>" class="form-control form-boxed" name="channel_link" id="channel_link" />
                 <span class="word-aux"><i class="icon-warning-sign"></i></span>
             </div>
         </div>
-        <script type="text/javascript" src="/sw/Public/Admin/jedate/jquery-1.7.2.js"></script>
-        <script type="text/javascript" src="/sw/Public/Admin/jedate/jquery.jedate.js"></script>
-        <link type="text/css" rel="stylesheet" href="/sw/Public/Admin/jedate/skin/jedate.css">
         <div class="form-group-col-2">
-            <div class="form-label">播放时间：</div>
+            <div class="form-label">手机端直播链接：</div>
             <div class="form-cont">
-                <input type="text" class="form-control form-boxed width-30 wicon" name="program_time" id="program_time" />
-                <script>
-                    $("#program_time").jeDate({
-                        isinitVal:true,
-                        festival: true,
-                        format: 'YYYY-MM-DD hh:mm:ss'
-                    });
-                </script>
-                <span class="word-aux"><i class="icon-warning-sign"></i><?php echo CUSTOM_SYSTOM_REQUIRED;?></span>
+                <input type="text" value="<?php echo ($channel_row["channel_link_m"]); ?>" class="form-control form-boxed" name="channel_link_m" id="channel_link_m" />
+                <span class="word-aux"><i class="icon-warning-sign"></i></span>
             </div>
         </div>
         <div class="form-group-col-2">
             <div class="form-label">排序：</div>
             <div class="form-cont">
-                <input type="text" class="form-control form-boxed width-30" name="program_sort" id="program_sort" />
+                <input type="text" value="<?php echo ($channel_row["channel_sort"]); ?>" class="form-control form-boxed width-30" name="channel_sort" id="channel_sort" />
                 <span class="word-aux"><i class="icon-warning-sign"></i><?php echo CUSTOM_SYSTOM_ORDER;?></span>
             </div>
         </div>
         <div class="form-group-col-2">
             <div class="form-label">是否显示：</div>
-            <label class="radio">
-                <input type="radio" name="program_show" value="1" checked />
-                <span>显示</span>
-            </label>
-            <label class="radio">
-                <input type="radio" name="program_show" value="0" />
-                <span>隐藏</span>
-            </label>
+            <?php if(($channel_row["channel_show"]) == "1"): ?><label class="radio">
+                    <input type="radio" name="channel_show" value="1" checked />
+                    <span>显示</span>
+                </label>
+                <label class="radio">
+                    <input type="radio" name="channel_show" value="0" />
+                    <span>隐藏</span>
+                </label>
+            <?php else: ?>
+                <label class="radio">
+                    <input type="radio" name="channel_show" value="1" />
+                    <span>显示</span>
+                </label>
+                <label class="radio">
+                    <input type="radio" name="channel_show" value="0" checked />
+                    <span>隐藏</span>
+                </label><?php endif; ?>
         </div>
         <div class="form-group-col-2">
             <div class="form-label"></div>
             <div class="form-cont">
-                <input type="submit" class="btn btn-primary" value="<?php echo CUSTOM_SYSTOM_PUTIN;?>" onclick="add_program()" />
+                <input type="submit" class="btn btn-primary" value="<?php echo CUSTOM_SYSTOM_PUTIN;?>" onclick="edit_channel()" />
                 <button onclick="javascript:window.history.back(-1);" class="btn btn-primary-outline"><?php echo CUSTOM_SYSTOM_BACK;?></button>
             </div>
         </div>
