@@ -71,6 +71,16 @@
                     </dd>
                 </dl>
             <li>
+            <li>
+                <dl>
+                    <dt>
+                        <i class="icon-play"></i>视频管理<i class="icon-angle-right"></i>
+                    </dt>
+                    <dd>
+                        <a href="<?php echo U('Admin/Program/index');?>">视频管理</a>
+                    </dd>
+                </dl>
+            <li>
         </ul>
     </nav>
 </div>
@@ -100,7 +110,7 @@
     <div class="page-wrap">
         <section class="page-hd">
             <header>
-                <h2 class="title">基本信息编辑</h2>
+                <h2 class="title">编辑基本信息</h2>
             </header>
             <hr>
         </section>

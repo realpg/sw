@@ -115,10 +115,10 @@
             <hr>
         </section>
         <div class="fl">
-            <a href="<?php echo U('Admin/Channel/add');?>" title="<?php echo CUSTOM_SYSTOM_ADD;?>" class="mr-5">
-                <button class="btn btn-warning"><i class="icon-plus"></i>添加</button>
+            <a href="<?php echo U('Admin/Channel/add');?>" class="mr-5">
+                <button class="btn btn-warning"><?php echo CUSTOM_SYSTOM_ADD;?></button>
             </a>
-            <button class="btn btn-danger" id="button_delete" onclick="deleteDo()"><i class="icon-trash"></i>批量删除</button>
+            <button class="btn btn-danger" id="button_delete" onclick="deleteDo()"><?php echo CUSTOM_SYSTOM_DELETEALL;?></button>
         </div>
         <div class="fr input-group mb-15">
             <form action="<?php echo U('Admin/Channel/index');?>" method="get">

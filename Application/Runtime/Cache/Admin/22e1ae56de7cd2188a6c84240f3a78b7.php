@@ -64,10 +64,20 @@
             <li>
                 <dl>
                     <dt>
-                        <i class="icon-play"></i>频道管理<i class="icon-angle-right"></i>
+                        <i class="icon-tasks"></i>频道管理<i class="icon-angle-right"></i>
                     </dt>
                     <dd>
                         <a href="<?php echo U('Admin/Channel/index');?>">频道管理</a>
+                    </dd>
+                </dl>
+            <li>
+            <li>
+                <dl>
+                    <dt>
+                        <i class="icon-play"></i>视频管理<i class="icon-angle-right"></i>
+                    </dt>
+                    <dd>
+                        <a href="<?php echo U('Admin/Program/index');?>">视频管理</a>
                     </dd>
                 </dl>
             <li>

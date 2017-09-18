@@ -64,7 +64,7 @@
             <li>
                 <dl>
                     <dt>
-                        <i class="icon-play"></i>频道管理<i class="icon-angle-right"></i>
+                        <i class="icon-tasks"></i>频道管理<i class="icon-angle-right"></i>
                     </dt>
                     <dd>
                         <a href="<?php echo U('Admin/Channel/index');?>">频道管理</a>
@@ -115,19 +115,25 @@
             <hr>
         </section>
         <div class="fl">
-            <a href="<?php echo U('Admin/Channel/add');?>" title="<?php echo CUSTOM_SYSTOM_ADD;?>" class="mr-5">
-                <button class="btn btn-warning"><i class="icon-plus"></i>添加</button>
+            <a href="<?php echo U('Admin/Program/add');?>" class="mr-5">
+                <button class="btn btn-warning"><?php echo CUSTOM_SYSTOM_ADD;?></button>
             </a>
-            <button class="btn btn-danger" id="button_delete" onclick="deleteDo()"><i class="icon-trash"></i>批量删除</button>
+            <button class="btn btn-danger" id="button_delete" onclick="deleteDo()"><?php echo CUSTOM_SYSTOM_DELETEALL;?></button>
         </div>
         <div class="fr input-group mb-15">
-            <form action="<?php echo U('Admin/Channel/index');?>" method="get">
+            <form action="<?php echo U('Admin/Program/index');?>" method="get">
+                <select name="channel" style="width:auto;">
+                    <option value="">全部</option>
+                    <?php if(is_array($channel_rows)): $i = 0; $__LIST__ = $channel_rows;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel_row): $mod = ($i % 2 );++$i; if($channel_row["channel_id"] == $channel): ?><option value="<?php echo ($channel_row["channel_id"]); ?>" selected><?php echo ($channel_row["channel_title"]); ?></option>
+                            <?php else: ?>
+                            <option value="<?php echo ($channel_row["channel_id"]); ?>" ><?php echo ($channel_row["channel_title"]); ?></option><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+                </select>
                 <input name="searchname" type="text" type="searchname" placeholder="<?php echo ($searchname); ?>" class="form-control form-boxed" style="width:290px;">
                 <button class="btn btn-primary">搜索</button>
             </form>
         </div>
         <p class="title-description"></p>
-        <form action="<?php echo U('Admin/Channel/delete');?>" method="post" id="table_data">
+        <form action="<?php echo U('Admin/Program/delete');?>" method="post" id="table_data">
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                 <tr>
@@ -136,35 +142,39 @@
                     </th>
                     <th width="10%">序号</th>
                     <th>标题</th>
+                    <th>时间</th>
+                    <th>分组</th>
                     <th>状态</th>
                     <th width="10%">操作</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php if(is_array($channel_rows)): $i = 0; $__LIST__ = $channel_rows;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel_row): $mod = ($i % 2 );++$i;?><tr class="cen">
+                <?php if(is_array($program_rows)): $i = 0; $__LIST__ = $program_rows;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$program_row): $mod = ($i % 2 );++$i;?><tr class="cen">
                         <td>
-                            <input type="checkbox" name="mm[]" value="<?php echo ($channel_row["channel_id"]); ?>" onclick="Item(this, 'mmAll')">
+                            <input type="checkbox" name="mm[]" value="<?php echo ($program_row["program_id"]); ?>" onclick="Item(this, 'mmAll')">
                         </td>
                         <td><?php echo ($i); ?></td>
-                        <td><?php echo ($channel_row["channel_title"]); ?></td>
+                        <td><?php echo ($program_row["program_title"]); ?></td>
+                        <td><?php echo ($program_row["program_time"]); ?></td>
+                        <td><?php echo ($program_row["channel_title"]); ?></td>
                         <td>
-                            <?php if(($channel_row["channel_show"]) == "1"): ?>显示
+                            <?php if(($program_row["program_show"]) == "1"): ?>显示
                             <?php else: ?>
                                 隐藏<?php endif; ?>
                         </td>
                         <td>
-                            <a href="<?php echo U('Admin/Channel/edit',array('channel_id'=>$channel_row[channel_id]));?>" title="<?php echo CUSTOM_SYSTOM_EDIT;?>" class="mr-5"><?php echo CUSTOM_SYSTOM_EDIT;?></a>
+                            <a href="<?php echo U('Admin/Program/edit',array('program_id'=>$program_row[program_id]));?>" title="<?php echo CUSTOM_SYSTOM_EDIT;?>" class="mr-5"><?php echo CUSTOM_SYSTOM_EDIT;?></a>
                         </td>
                     </tr><?php endforeach; endif; else: echo "" ;endif; ?>
                 </tbody>
             </table>
         </form>
-        <?php if(empty($channel_rows)): ?><div class="panel panel-default">
+        <?php if(empty($program_rows)): ?><div class="panel panel-default">
                 <div class="panel-bd text-center">
                     <?php echo CUSTOM_MESSAGE_NODATA;?>
                 </div>
             </div><?php endif; ?>
-        <?php if($channel_count > CUSTOM_PAGING): ?><div class="panel panel-default">
+        <?php if($program_count > CUSTOM_PAGING): ?><div class="panel panel-default">
                 <div class="panel-bd">
                     <div class='pagination'>
                     <?php echo ($page_show); ?>

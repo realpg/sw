@@ -26,20 +26,20 @@
             <div class="form-label">是否显示：</div>
             <eq name="channel_row.channel_show" value="1">
                 <label class="radio">
-                    <input type="radio" name="channel_show" checked />
+                    <input type="radio" name="channel_show" value="1" checked />
                     <span>显示</span>
                 </label>
                 <label class="radio">
-                    <input type="radio" name="channel_show" />
+                    <input type="radio" name="channel_show" value="0" />
                     <span>隐藏</span>
                 </label>
             <else />
                 <label class="radio">
-                    <input type="radio" name="channel_show" />
+                    <input type="radio" name="channel_show" value="1" />
                     <span>显示</span>
                 </label>
                 <label class="radio">
-                    <input type="radio" name="channel_show" checked />
+                    <input type="radio" name="channel_show" value="0" checked />
                     <span>隐藏</span>
                 </label>
             </eq>

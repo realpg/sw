@@ -145,7 +145,6 @@ function edit_channel()
 }
 function add_channel()
 {
-    var channel_id=$("#channel_id").text();
     var channel_title=$("#channel_title").val();
     var channel_sort=$("#channel_sort").val()==""?0:$("#channel_sort").val();
     var channel_show=$("input[name='channel_show']:checked").val();
@@ -156,12 +155,83 @@ function add_channel()
     }
     else
     {
-        $.post("/sw/Admin/Channel/addDo",{"channel_id":channel_id,"channel_title":channel_title,"channel_sort":channel_sort,"channel_show":channel_show},function(data){
+        $.post("/sw/Admin/Channel/addDo",{"channel_title":channel_title,"channel_sort":channel_sort,"channel_show":channel_show},function(data){
             if(data.code=="1000")
             {
                 $('.mask,.dialog').show();
                 $('.dialog .dialog-bd p').html('添加成功');
                 $('.dialog .dialog-ft').html("<a href='/sw/Admin/Channel/index'><button class='btn btn-info JyesBtn'>确认</button></a>")
+            }
+            else
+            {
+                $('.mask,.dialog').show();
+                $('.dialog .dialog-bd p').html(data.message);
+            }
+        },"json")
+    }
+}
+function edit_program()
+{
+    var program_id=$("#program_id").text();
+    var program_title=$("#program_title").val();
+    var program_level=$("#program_level").val();
+    var program_video=$("#program_video").val();
+    var program_time=$("#program_time").val();
+    var program_sort=$("#program_sort").val()==""?0:$("#program_sort").val();
+    var program_show=$("input[name='program_show']:checked").val();
+    if(program_title=="")
+    {
+        $('.mask,.dialog').show();
+        $('.dialog .dialog-bd p').html('请输入标题');
+    }
+    else if(program_time=="")
+    {
+        $('.mask,.dialog').show();
+        $('.dialog .dialog-bd p').html('请选择播放时间');
+    }
+    else
+    {
+        $.post("/sw/Admin/Program/editDo",{"program_id":program_id,"program_title":program_title,"program_level":program_level,"program_video":program_video,"program_time":program_time,"program_sort":program_sort,"program_show":program_show},function(data){
+            if(data.code=="1000")
+            {
+                $('.mask,.dialog').show();
+                $('.dialog .dialog-bd p').html('编辑成功');
+                $('.dialog .dialog-ft').html("<a href='/sw/Admin/Program/index'><button class='btn btn-info JyesBtn'>确认</button></a>")
+            }
+            else
+            {
+                $('.mask,.dialog').show();
+                $('.dialog .dialog-bd p').html(data.message);
+            }
+        },"json")
+    }
+}
+function add_program()
+{
+    var program_title=$("#program_title").val();
+    var program_level=$("#program_level").val();
+    var program_video=$("#program_video").val();
+    var program_time=$("#program_time").val();
+    var program_sort=$("#program_sort").val()==""?0:$("#program_sort").val();
+    var program_show=$("input[name='program_show']:checked").val();
+    if(program_title=="")
+    {
+        $('.mask,.dialog').show();
+        $('.dialog .dialog-bd p').html('请输入标题');
+    }
+    else if(program_time=="")
+    {
+        $('.mask,.dialog').show();
+        $('.dialog .dialog-bd p').html('请选择播放时间');
+    }
+    else
+    {
+        $.post("/sw/Admin/Program/addDo",{"program_title":program_title,"program_level":program_level,"program_video":program_video,"program_time":program_time,"program_sort":program_sort,"program_show":program_show},function(data){
+            if(data.code=="1000")
+            {
+                $('.mask,.dialog').show();
+                $('.dialog .dialog-bd p').html('添加成功');
+                $('.dialog .dialog-ft').html("<a href='/sw/Admin/Program/index'><button class='btn btn-info JyesBtn'>确认</button></a>")
             }
             else
             {

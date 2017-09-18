@@ -8,19 +8,29 @@
             <hr>
         </section>
         <div class="fl">
-            <a href="{:U('Admin/Channel/add')}" title="{:CUSTOM_SYSTOM_ADD}" class="mr-5">
-                <button class="btn btn-warning"><i class="icon-plus"></i>添加</button>
+            <a href="{:U('Admin/Program/add')}" class="mr-5">
+                <button class="btn btn-warning">{:CUSTOM_SYSTOM_ADD}</button>
             </a>
-            <button class="btn btn-danger" id="button_delete" onclick="deleteDo()"><i class="icon-trash"></i>批量删除</button>
+            <button class="btn btn-danger" id="button_delete" onclick="deleteDo()">{:CUSTOM_SYSTOM_DELETEALL}</button>
         </div>
         <div class="fr input-group mb-15">
-            <form action="{:U('Admin/Channel/index')}" method="get">
+            <form action="{:U('Admin/Program/index')}" method="get">
+                <select name="channel" style="width:auto;">
+                    <option value="">全部</option>
+                    <volist name="channel_rows" id="channel_row">
+                        <if condition="$channel_row.channel_id eq $channel">
+                            <option value="{$channel_row.channel_id}" selected>{$channel_row.channel_title}</option>
+                            <else />
+                            <option value="{$channel_row.channel_id}" >{$channel_row.channel_title}</option>
+                        </if>
+                    </volist>
+                </select>
                 <input name="searchname" type="text" type="searchname" placeholder="{$searchname}" class="form-control form-boxed" style="width:290px;">
                 <button class="btn btn-primary">搜索</button>
             </form>
         </div>
         <p class="title-description"></p>
-        <form action="{:U('Admin/Channel/delete')}" method="post" id="table_data">
+        <form action="{:U('Admin/Program/delete')}" method="post" id="table_data">
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                 <tr>
@@ -29,41 +39,45 @@
                     </th>
                     <th width="10%">序号</th>
                     <th>标题</th>
+                    <th>时间</th>
+                    <th>分组</th>
                     <th>状态</th>
                     <th width="10%">操作</th>
                 </tr>
                 </thead>
                 <tbody>
-                <volist name="channel_rows" id="channel_row">
+                <volist name="program_rows" id="program_row">
                     <tr class="cen">
                         <td>
-                            <input type="checkbox" name="mm[]" value="{$channel_row.channel_id}" onclick="Item(this, 'mmAll')">
+                            <input type="checkbox" name="mm[]" value="{$program_row.program_id}" onclick="Item(this, 'mmAll')">
                         </td>
                         <td>{$i}</td>
-                        <td>{$channel_row.channel_title}</td>
+                        <td>{$program_row.program_title}</td>
+                        <td>{$program_row.program_time}</td>
+                        <td>{$program_row.channel_title}</td>
                         <td>
-                            <eq name="channel_row.channel_show" value="1">
+                            <eq name="program_row.program_show" value="1">
                                 显示
                             <else />
                                 隐藏
                             </eq>
                         </td>
                         <td>
-                            <a href="{:U('Admin/Channel/edit',array('channel_id'=>$channel_row[channel_id]))}" title="{:CUSTOM_SYSTOM_EDIT}" class="mr-5">{:CUSTOM_SYSTOM_EDIT}</a>
+                            <a href="{:U('Admin/Program/edit',array('program_id'=>$program_row[program_id]))}" title="{:CUSTOM_SYSTOM_EDIT}" class="mr-5">{:CUSTOM_SYSTOM_EDIT}</a>
                         </td>
                     </tr>
                 </volist>
                 </tbody>
             </table>
         </form>
-        <empty name="channel_rows">
+        <empty name="program_rows">
             <div class="panel panel-default">
                 <div class="panel-bd text-center">
                     {:CUSTOM_MESSAGE_NODATA}
                 </div>
             </div>
         </empty>
-        <if condition="$channel_count gt CUSTOM_PAGING">
+        <if condition="$program_count gt CUSTOM_PAGING">
             <div class="panel panel-default">
                 <div class="panel-bd">
                     <div class='pagination'>

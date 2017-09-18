@@ -3,43 +3,81 @@
     <div class="page-wrap">
         <section class="page-hd">
             <header>
-                <h2 class="title">编辑频道</h2>
+                <h2 class="title">编辑节目</h2>
             </header>
             <hr>
         </section>
-        <span hidden id="channel_id">{$channel_row.channel_id}</span>
+        <span hidden id="program_id">{$program_row.program_id}</span>
         <div class="form-group-col-2">
             <div class="form-label">标题：</div>
             <div class="form-cont">
-                <input type="text" value="{$channel_row.channel_title}" class="form-control form-boxed width-30" name="channel_title" id="channel_title" />
+                <input type="text" value="{$program_row.program_title}" class="form-control form-boxed width-30" name="program_title" id="program_title" />
+                <span class="word-aux"><i class="icon-warning-sign"></i>{:CUSTOM_SYSTOM_REQUIRED}</span>
+            </div>
+        </div>
+        <div class="form-group-col-2">
+            <div class="form-label">频道：</div>
+            <div class="form-cont">
+                <select name="program_level" id="program_level" style="width:auto;">
+                    <volist name="channel_rows" id="channel_row">
+                        <if condition="$channel_row.channel_id eq $program_level">
+                            <option value="{$channel_row.channel_id}" selected>{$channel_row.channel_title}</option>
+                        <else />
+                            <option value="{$channel_row.channel_id}" >{$channel_row.channel_title}</option>
+                        </if>
+                    </volist>
+                </select>
+            </div>
+        </div>
+        <div class="form-group-col-2">
+            <div class="form-label">视频：</div>
+            <div class="form-cont">
+                <input type="text" value="{$program_row.program_video}" class="form-control form-boxed width-30" name="program_video" id="program_video" />
+                <span class="word-aux"><i class="icon-warning-sign"></i></span>
+            </div>
+        </div>
+        <script type="text/javascript" src="__PUBLIC__/Admin/jedate/jquery-1.7.2.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Admin/jedate/jquery.jedate.js"></script>
+        <link type="text/css" rel="stylesheet" href="__PUBLIC__/Admin/jedate/skin/jedate.css">
+        <div class="form-group-col-2">
+            <div class="form-label">播放时间：</div>
+            <div class="form-cont">
+                <input type="text" value="{$program_row.program_time}" class="form-control form-boxed width-30 wicon" name="program_time" id="program_time" />
+                <script>
+                    $("#program_time").jeDate({
+                        isinitVal:true,
+                        festival: true,
+                        format: 'YYYY-MM-DD hh:mm:ss'
+                    });
+                </script>
                 <span class="word-aux"><i class="icon-warning-sign"></i>{:CUSTOM_SYSTOM_REQUIRED}</span>
             </div>
         </div>
         <div class="form-group-col-2">
             <div class="form-label">排序：</div>
             <div class="form-cont">
-                <input type="text" value="{$channel_row.channel_sort}" class="form-control form-boxed width-30" name="channel_sort" id="channel_sort" />
+                <input type="text" value="{$program_row.program_sort}" class="form-control form-boxed width-30" name="program_sort" id="program_sort" />
                 <span class="word-aux"><i class="icon-warning-sign"></i>{:CUSTOM_SYSTOM_ORDER}</span>
             </div>
         </div>
         <div class="form-group-col-2">
             <div class="form-label">是否显示：</div>
-            <eq name="channel_row.channel_show" value="1">
+            <eq name="program_row.program_show" value="1">
                 <label class="radio">
-                    <input type="radio" name="channel_show" checked />
+                    <input type="radio" name="program_show" value="1" checked />
                     <span>显示</span>
                 </label>
                 <label class="radio">
-                    <input type="radio" name="channel_show" />
+                    <input type="radio" name="program_show" value="0" />
                     <span>隐藏</span>
                 </label>
             <else />
                 <label class="radio">
-                    <input type="radio" name="channel_show" />
+                    <input type="radio" name="program_show" value="1" />
                     <span>显示</span>
                 </label>
                 <label class="radio">
-                    <input type="radio" name="channel_show" checked />
+                    <input type="radio" name="program_show" value="0" checked />
                     <span>隐藏</span>
                 </label>
             </eq>
@@ -47,7 +85,7 @@
         <div class="form-group-col-2">
             <div class="form-label"></div>
             <div class="form-cont">
-                <input type="submit" class="btn btn-primary" value="{:CUSTOM_SYSTOM_PUTIN}" onclick="edit_channel()" />
+                <input type="submit" class="btn btn-primary" value="{:CUSTOM_SYSTOM_PUTIN}" onclick="edit_program()" />
                 <button onclick="javascript:window.history.back(-1);" class="btn btn-primary-outline">{:CUSTOM_SYSTOM_BACK}</button>
             </div>
         </div>

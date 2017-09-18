@@ -6,11 +6,11 @@ define("CUSTOM_p_length", 16);
 
 /*********************************后台通用文字****************************/
 define("CUSTOM_SYSTOM_FIND", "查找");
-define("CUSTOM_SYSTOM_ADD", "添加");
-define("CUSTOM_SYSTOM_EDIT", "编辑");
+define("CUSTOM_SYSTOM_ADD", "<i class='icon-plus'></i>添加");
+define("CUSTOM_SYSTOM_EDIT", "<i class='icon-pencil'></i>编辑");
 define("CUSTOM_SYSTOM_SEE", "查看详情");
-define("CUSTOM_SYSTOM_DELETE", "删除");
-define("CUSTOM_SYSTOM_DELETEALL", "批量删除");
+define("CUSTOM_SYSTOM_DELETE", "<i class='icon-trash'></i>删除");
+define("CUSTOM_SYSTOM_DELETEALL", "<i class='icon-trash'></i>批量删除");
 define("CUSTOM_SYSTOM_BAN_DELETEALL", "--");
 define("CUSTOM_SYSTOM_EDITPASSWORD", "修改密码");
 define("CUSTOM_SYSTOM_BAR", "系统提示");
@@ -20,6 +20,7 @@ define("CUSTOM_SYSTOM_PUTIN", "提交");
 define("CUSTOM_SYSTOM_BACK", "返回");
 define("CUSTOM_SYSTOM_REQUIRED", "不准为空");
 define("CUSTOM_SYSTOM_ORDER", "越大越靠前");
+define("CUSTOM_SYSTOM_TIME", "不填默认为当前时间");
 define("CUSTOM_SYSTOM_SUCCESS", "成功");
 define("CUSTOM_SYSTOM_FAIL", "失败");
 define("CUSTOM_SYSTOM_LOGIN", "登录");

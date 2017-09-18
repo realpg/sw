@@ -5,7 +5,7 @@ use Admin\Common\CommonController;
 class ChannelController extends CommonController{
     public function index()
     {
-        $USER_DB=D("Channel");
+        $CHANNEL_DB=D("Channel");
         $p=I("p",1);  //当前页数
         $searchname=I("searchname","");  //搜索关键字
         $parameter_channel_select=array(
@@ -13,8 +13,8 @@ class ChannelController extends CommonController{
                 "channel_title"=>array("like","%".$searchname."%"),
             )
         );
-        $channel_rows=$USER_DB->scope("channel_select",$parameter_channel_select)->limit(($p-1)*CUSTOM_PAGING,CUSTOM_PAGING)->order("channel_sort desc,channel_id desc")->select();
-        $channel_count=count($USER_DB->scope("channel_select",$parameter_channel_select)->select());
+        $channel_rows=$CHANNEL_DB->scope("channel_select",$parameter_channel_select)->limit(($p-1)*CUSTOM_PAGING,CUSTOM_PAGING)->order("channel_sort desc,channel_id desc")->select();
+        $channel_count=count($CHANNEL_DB->scope("channel_select",$parameter_channel_select)->select());
         $channel_page = new \Think\Page($channel_count,CUSTOM_PAGING);// 实例化分页类
         $page_show = $channel_page->show();// 分页显示输出
 
@@ -27,19 +27,19 @@ class ChannelController extends CommonController{
     }
     public function edit()
     {
-        $USER_DB=D("Channel");
+        $CHANNEL_DB=D("Channel");
         $channel=$_SESSION["channel"];
         $channel_id=I("channel_id",$channel["channel_id"]);
         $parameter_channel_byid=array(
             "where"=>array("channel_id"=>$channel_id)
         );
-        $channel_row=$USER_DB->scope("find_channel_byid",$parameter_channel_byid)->find();
+        $channel_row=$CHANNEL_DB->scope("find_channel_byid",$parameter_channel_byid)->find();
         $this->assign("channel_row",$channel_row);
         $this->display();
     }
     public function editDo()
     {
-        $USER_DB=D("Channel");
+        $CHANNEL_DB=D("Channel");
         $channel_id=I("channel_id");
         $channel_title=I("channel_title");
         $channel_sort=I("channel_sort");
@@ -53,7 +53,7 @@ class ChannelController extends CommonController{
                 "channel_show"=>$channel_show
             )
         );
-        $row=$USER_DB->save($parameter_channel_edit["where"]);
+        $row=$CHANNEL_DB->save($parameter_channel_edit["where"]);
         if($row)
         {
             $data["result"]=true;
@@ -72,12 +72,11 @@ class ChannelController extends CommonController{
         $this->display();
     }
     public function addDo(){
-        $USER_DB=D("Channel");
+        $CHANNEL_DB=D("Channel");
         $channel_title=I("channel_title");
         $channel_sort=I("channel_sort");
         $channel_show=I("channel_show");
         $data=array();
-        //检测用户是否存在
         $parameter_channel_add=array(
             "where"=>array(
                 "channel_title"=>$channel_title,
@@ -85,7 +84,7 @@ class ChannelController extends CommonController{
                 "channel_show"=>$channel_show
             )
         );
-        $row=$USER_DB->add($parameter_channel_add["where"]);
+        $row=$CHANNEL_DB->add($parameter_channel_add["where"]);
         if($row)
         {
             $data["result"]=true;
@@ -102,10 +101,10 @@ class ChannelController extends CommonController{
     }
     public function delete()
     {
-        $USER_DB=D("Channel");
+        $CHANNEL_DB=D("Channel");
         $mm=$_REQUEST["mm"];
         $id =implode(",",$mm);
-        $rows=$USER_DB->delete($id);
+        $rows=$CHANNEL_DB->delete($id);
         if($rows)
         {
             $this->redirect("/Admin/Channel/index");
