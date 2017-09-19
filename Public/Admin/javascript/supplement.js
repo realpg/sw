@@ -120,7 +120,7 @@ function edit_channel()
     var channel_id=$("#channel_id").text();
     var channel_title=$("#channel_title").val();
     var channel_link=$("#channel_link").val();
-    var channel_link=$("#channel_link_m").val();
+    var channel_link_m=$("#channel_link_m").val();
     var channel_sort=$("#channel_sort").val()==""?0:$("#channel_sort").val();
     var channel_show=$("input[name='channel_show']:checked").val();
     if(channel_title=="")
@@ -149,7 +149,7 @@ function add_channel()
 {
     var channel_title=$("#channel_title").val();
     var channel_link=$("#channel_link").val();
-    var channel_link=$("#channel_link_m").val();
+    var channel_link_m=$("#channel_link_m").val();
     var channel_sort=$("#channel_sort").val()==""?0:$("#channel_sort").val();
     var channel_show=$("input[name='channel_show']:checked").val();
     if(channel_title=="")

@@ -11,7 +11,8 @@
         <img src="/sw/Public/Images/logo.png" class="logo" />
     </div>
     <div class="video">
-        <iframe height="500px" frameborder="0" width="100%" scrolling="no" marginheight="0" marginwidth="0" border="0" src="<?php echo ($channel_link); ?>"></iframe>
+        <!--<iframe height="500px" frameborder="0" width="100%" scrolling="no" marginheight="0" marginwidth="0" border="0" src="<?php echo ($channel_link); ?>"></iframe>-->
+        <video name="vstPlayer" id="vstPlayer" width="100%" height="500px" autoplay="autoplay" src="<?php echo ($channel_link); ?>"></video>
         <div class="source">
             视频来源：<?php echo ($channel_link); ?>
         </div>
