@@ -74,10 +74,10 @@
             <li>
                 <dl>
                     <dt>
-                        <i class="icon-play"></i>视频管理<i class="icon-angle-right"></i>
+                        <i class="icon-play"></i>节目管理<i class="icon-angle-right"></i>
                     </dt>
                     <dd>
-                        <a href="<?php echo U('Admin/Program/index');?>">视频管理</a>
+                        <a href="<?php echo U('Admin/Program/index');?>">节目管理</a>
                     </dd>
                 </dl>
             <li>
@@ -110,7 +110,7 @@
     <div class="page-wrap">
         <section class="page-hd">
             <header>
-                <h2 class="title"><i class="icon-table"></i>频道列表</h2>
+                <h2 class="title"><i class="icon-table"></i>节目列表</h2>
             </header>
             <hr>
         </section>
@@ -119,7 +119,7 @@
                 <button class="btn btn-warning"><?php echo CUSTOM_SYSTOM_ADD;?></button>
             </a>
             <button class="btn btn-danger" id="button_delete" onclick="deleteDo()"><?php echo CUSTOM_SYSTOM_DELETEALL;?></button>
-            <button class="btn btn-warning" style="background: #4bcf99;border-color: #4bcf99;" onclick="collection()"><?php echo CUSTOM_SYSTOM_COLLECTION;?></button>
+            <button class="btn btn-warning" id="collection" style="background: #4bcf99;border-color: #4bcf99;" onclick="collection()"><?php echo CUSTOM_SYSTOM_COLLECTION;?></button>
         </div>
         <div class="fr input-group mb-15">
             <form action="<?php echo U('Admin/Program/index');?>" method="get">

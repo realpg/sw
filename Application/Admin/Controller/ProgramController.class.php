@@ -146,7 +146,9 @@ class ProgramController extends CommonController{
     /*
      * 采集节目单
      */
-    public function collection(){
+    public function collection()
+    {
+        header("Content-Type: text/html;charset=utf-8");
         $CHANNEL_DB=D("Channel");
         $PROGRAM_DB=D("Program");
         $channel_rows=$CHANNEL_DB->field("channel_web,channel_rule,channel_filter,channel_id")->select();
@@ -154,30 +156,43 @@ class ProgramController extends CommonController{
         {
             if(!empty($channel_row["channel_web"])&&!empty($channel_row["channel_rule"]))
             {
-                //采集首页地址
-//            $url=$channel_row["channel_web"];
-                $url="http://wb.ta03.cn/m/tv.php?act=play&token=ffa6682d13d46462a1cc9724269ea953&vid=10001";
+                //删除之前的节目单
+                $parameter_program_delete=array(
+                    "where"=>array(
+                        "program_level"=>$channel_row["channel_id"],
+                    )
+                );
+                $list=$PROGRAM_DB->where($parameter_program_delete["where"])->delete();
+                //采集网页地址
+                $url=htmlspecialchars_decode($channel_row["channel_web"]); //将html语言反转义
                 //获取页面代码
                 $source=file_get_contents($url);
                 //设置匹配正则
-//            $search = $channel_row["channel_rule"];
-                $search = '/<li>(.*?)<\/li>/is';
+                 $search = htmlspecialchars_decode($channel_row["channel_rule"]); //将html语言反转义
                 //采集
                 preg_match_all($search,$source,$datas);
-                echo $url."<br />".$search;
-                print_r($datas);
-            //将采集到的数据添加到数据库
-            foreach ($datas[0] as $data)
-            {
-                $parameter_program_add=array(
-                    "where"=>array(
-                        "program_level"=>$channel_row["channel_id"],
-                        "program_content"=>$data,
-                        "program_sort"=>0,
-                    )
-                );
-                $row=$PROGRAM_DB->add($parameter_program_add["where"]);
-            }
+                //将采集到的数据添加到数据库
+                foreach ($datas[0] as $data)
+                {
+                    //去掉过滤的字段
+                    $filters=explode("_",$channel_row["channel_filter"]);
+                    foreach ($filters as $filter)
+                    {
+                        $data=strip_tags(str_replace($filter,'',$data));
+                    }
+                    if($data!="")
+                    {
+                        $parameter_program_add=array(
+                            "where"=>array(
+                                "program_level"=>$channel_row["channel_id"],
+                                "program_content"=>$data,
+                                "program_sort"=>0,
+                            )
+                        );
+                        $row=$PROGRAM_DB->add($parameter_program_add["where"]);
+                    }
+                }
+
             }
         }
     }

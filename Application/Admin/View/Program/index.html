@@ -3,7 +3,7 @@
     <div class="page-wrap">
         <section class="page-hd">
             <header>
-                <h2 class="title"><i class="icon-table"></i>频道列表</h2>
+                <h2 class="title"><i class="icon-table"></i>节目列表</h2>
             </header>
             <hr>
         </section>
@@ -12,7 +12,7 @@
                 <button class="btn btn-warning">{:CUSTOM_SYSTOM_ADD}</button>
             </a>
             <button class="btn btn-danger" id="button_delete" onclick="deleteDo()">{:CUSTOM_SYSTOM_DELETEALL}</button>
-            <button class="btn btn-warning" style="background: #4bcf99;border-color: #4bcf99;" onclick="collection()">{:CUSTOM_SYSTOM_COLLECTION}</button>
+            <button class="btn btn-warning" id="collection" style="background: #4bcf99;border-color: #4bcf99;" onclick="collection()">{:CUSTOM_SYSTOM_COLLECTION}</button>
         </div>
         <div class="fr input-group mb-15">
             <form action="{:U('Admin/Program/index')}" method="get">

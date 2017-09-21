@@ -257,8 +257,9 @@ function add_program()
 }
 function collection()
 {
+    $("#collection").html("<span class=\'icon-spin icon-refresh\'></span>采集中……");
     $.post("/sw/Admin/Program/collection",function(){
-
+        history.go(0);
     })
 }
 function All(e, itemName)

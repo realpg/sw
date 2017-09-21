@@ -74,10 +74,10 @@
             <li>
                 <dl>
                     <dt>
-                        <i class="icon-play"></i>视频管理<i class="icon-angle-right"></i>
+                        <i class="icon-play"></i>节目管理<i class="icon-angle-right"></i>
                     </dt>
                     <dd>
-                        <a href="<?php echo U('Admin/Program/index');?>">视频管理</a>
+                        <a href="<?php echo U('Admin/Program/index');?>">节目管理</a>
                     </dd>
                 </dl>
             <li>

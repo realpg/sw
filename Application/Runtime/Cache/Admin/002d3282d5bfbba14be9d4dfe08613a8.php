@@ -74,10 +74,10 @@
             <li>
                 <dl>
                     <dt>
-                        <i class="icon-play"></i>视频管理<i class="icon-angle-right"></i>
+                        <i class="icon-play"></i>节目管理<i class="icon-angle-right"></i>
                     </dt>
                     <dd>
-                        <a href="<?php echo U('Admin/Program/index');?>">视频管理</a>
+                        <a href="<?php echo U('Admin/Program/index');?>">节目管理</a>
                     </dd>
                 </dl>
             <li>
@@ -110,37 +110,32 @@
     <div class="page-wrap">
         <section class="page-hd">
             <header>
-                <h2 class="title">添加节目</h2>
+                <h2 class="title">编辑基本信息</h2>
             </header>
             <hr>
         </section>
         <div class="form-group-col-2">
-            <div class="form-label">内容：</div>
+            <div class="form-label">网站标题：</div>
             <div class="form-cont">
-                <input type="text" class="form-control form-boxed width-30" name="program_content" id="program_content" />
-                <span class="word-aux"><i class="icon-warning-sign"></i><?php echo CUSTOM_SYSTOM_REQUIRED;?></span>
+                <input type="text" value="<?php echo ($base_row["base_title"]); ?>" class="form-control form-boxed width-30" name="base_title" id="base_title" />
             </div>
         </div>
         <div class="form-group-col-2">
-            <div class="form-label">频道：</div>
+            <div class="form-label">版权：</div>
             <div class="form-cont">
-                <select name="program_level" id="program_level" style="width:auto;">
-                    <?php if(is_array($channel_rows)): $i = 0; $__LIST__ = $channel_rows;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel_row): $mod = ($i % 2 );++$i;?><option value="<?php echo ($channel_row["channel_id"]); ?>" ><?php echo ($channel_row["channel_title"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-                </select>
+                <input type="text" value="<?php echo ($base_row["base_copyright"]); ?>" class="form-control form-boxed width-30" name="base_copyright" id="base_copyright" />
             </div>
         </div>
         <div class="form-group-col-2">
-            <div class="form-label">排序：</div>
+            <div class="form-label">备案号：</div>
             <div class="form-cont">
-                <input type="text" class="form-control form-boxed width-30" name="program_sort" id="program_sort" />
-                <span class="word-aux"><i class="icon-warning-sign"></i><?php echo CUSTOM_SYSTOM_ORDER;?></span>
+                <input type="text" value="<?php echo ($base_row["base_record"]); ?>" class="form-control form-boxed width-30" name="base_record" id="base_record" />
             </div>
         </div>
         <div class="form-group-col-2">
             <div class="form-label"></div>
             <div class="form-cont">
-                <input type="submit" class="btn btn-primary" value="<?php echo CUSTOM_SYSTOM_PUTIN;?>" onclick="add_program()" />
-                <button onclick="javascript:window.history.back(-1);" class="btn btn-primary-outline"><?php echo CUSTOM_SYSTOM_BACK;?></button>
+                <input type="submit" class="btn btn-primary" value="<?php echo CUSTOM_SYSTOM_PUTIN;?>" onclick="edit_base()" />
             </div>
         </div>
     </div>
