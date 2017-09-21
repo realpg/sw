@@ -46,6 +46,9 @@ class ChannelController extends CommonController{
         $channel_link_m=I("channel_link_m");
         $channel_sort=I("channel_sort");
         $channel_show=I("channel_show");
+        $channel_web=I("channel_web");
+        $channel_rule=I("channel_rule");
+        $channel_filter=I("channel_filter");
         $data=array();
         $parameter_channel_edit=array(
             "where"=>array(
@@ -54,7 +57,10 @@ class ChannelController extends CommonController{
                 "channel_link"=>$channel_link,
                 "channel_link_m"=>$channel_link_m,
                 "channel_sort"=>$channel_sort,
-                "channel_show"=>$channel_show
+                "channel_show"=>$channel_show,
+                "channel_web"=>$channel_web,
+                "channel_rule"=>$channel_rule,
+                "channel_filter"=>$channel_filter,
             )
         );
         $row=$CHANNEL_DB->save($parameter_channel_edit["where"]);
@@ -82,6 +88,9 @@ class ChannelController extends CommonController{
         $channel_link_m=I("channel_link_m");
         $channel_sort=I("channel_sort");
         $channel_show=I("channel_show");
+        $channel_web=I("channel_web");
+        $channel_rule=I("channel_rule");
+        $channel_filter=I("channel_filter");
         $data=array();
         $parameter_channel_add=array(
             "where"=>array(
@@ -89,7 +98,10 @@ class ChannelController extends CommonController{
                 "channel_link"=>$channel_link,
                 "channel_link_m"=>$channel_link_m,
                 "channel_sort"=>$channel_sort,
-                "channel_show"=>$channel_show
+                "channel_show"=>$channel_show,
+                "channel_web"=>$channel_web,
+                "channel_rule"=>$channel_rule,
+                "channel_filter"=>$channel_filter,
             )
         );
         $row=$CHANNEL_DB->add($parameter_channel_add["where"]);

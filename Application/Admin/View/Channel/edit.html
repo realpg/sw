@@ -58,6 +58,33 @@
                 </label>
             </eq>
         </div>
+        <section class="page-hd">
+            <header>
+                <h2 class="title">编辑节目单采集规则</h2>
+            </header>
+            <hr>
+        </section>
+        <div class="form-group-col-2">
+            <div class="form-label">采集的页面：</div>
+            <div class="form-cont">
+                <input type="text" value="{$channel_row.channel_web}" class="form-control form-boxed" name="channel_web" id="channel_web" />
+                <span class="word-aux"><i class="icon-warning-sign"></i>{:CUSTOM_SYSTOM_REQUIRED}</span>
+            </div>
+        </div>
+        <div class="form-group-col-2">
+            <div class="form-label">采集的规则：</div>
+            <div class="form-cont">
+                <input type="text" value="{$channel_row.channel_rule}" class="form-control form-boxed" name="channel_rule" id="channel_rule" />
+                <span class="word-aux"><i class="icon-warning-sign"></i>{:CUSTOM_SYSTOM_REQUIRED}；{:CUSTOM_SYSTOM_RULE}</span>
+            </div>
+        </div>
+        <div class="form-group-col-2">
+            <div class="form-label">过滤的字段：</div>
+            <div class="form-cont">
+                <input type="text" value="{$channel_row.channel_filter}" class="form-control form-boxed" name="channel_filter" id="channel_filter" />
+                <span class="word-aux"><i class="icon-warning-sign"></i>{:CUSTOM_SYSTOM_FILTRE}</span>
+            </div>
+        </div>
         <div class="form-group-col-2">
             <div class="form-label"></div>
             <div class="form-cont">

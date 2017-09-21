@@ -13,7 +13,7 @@ class ProgramController extends CommonController{
         {
             $parameter_program_select=array(
                 "where"=>array(
-                    "program_title"=>array("like","%".$searchname."%"),
+                    "program_content"=>array("like","%".$searchname."%"),
                     "program_level"=>array("like","%%"),
                     "a.program_level=b.channel_id"   //program与channel关联，a为program，b为channel（在ProgramModel中定义）
                 )
@@ -23,14 +23,14 @@ class ProgramController extends CommonController{
         {
             $parameter_program_select=array(
                 "where"=>array(
-                    "program_title"=>array("like","%".$searchname."%"),
+                    "program_content"=>array("like","%".$searchname."%"),
                     "program_level"=>array("in",$channel),
                     "a.program_level=b.channel_id"   //program与channel关联，a为program，b为channel（在ProgramModel中定义）
                 )
             );
         }
         //节目单条件查询
-        $program_rows=$PROGRAM_DB->scope("program_select",$parameter_program_select)->limit(($p-1)*CUSTOM_PAGING,CUSTOM_PAGING)->order("program_sort desc,program_id desc")->select();
+        $program_rows=$PROGRAM_DB->scope("program_select",$parameter_program_select)->limit(($p-1)*CUSTOM_PAGING,CUSTOM_PAGING)->order("program_sort desc,program_id asc")->select();
         $program_count=count($PROGRAM_DB->scope("program_select",$parameter_program_select)->select());
         $program_page = new \Think\Page($program_count,CUSTOM_PAGING);// 实例化分页类
         $page_show = $program_page->show();// 分页显示输出
@@ -68,21 +68,15 @@ class ProgramController extends CommonController{
         $PROGRAM_DB=D("Program");
         $program_id=I("program_id");
         $program_level=I("program_level");
-        $program_title=I("program_title");
-        $program_video=I("program_video");
-        $program_time=I("program_time");
+        $program_content=I("program_content");
         $program_sort=I("program_sort");
-        $program_show=I("program_show");
         $data=array();
         $parameter_program_edit=array(
             "where"=>array(
                 "program_id"=>$program_id,
                 "program_level"=>$program_level,
-                "program_title"=>$program_title,
-                "program_video"=>$program_video,
-                "program_time"=>$program_time,
+                "program_content"=>$program_content,
                 "program_sort"=>$program_sort,
-                "program_show"=>$program_show
             )
         );
         $row=$PROGRAM_DB->save($parameter_program_edit["where"]);
@@ -109,20 +103,14 @@ class ProgramController extends CommonController{
     public function addDo(){
         $PROGRAM_DB=D("Program");
         $program_level=I("program_level");
-        $program_title=I("program_title");
-        $program_video=I("program_video");
-        $program_time=I("program_time");
+        $program_content=I("program_content");
         $program_sort=I("program_sort");
-        $program_show=I("program_show");
         $data=array();
         $parameter_program_add=array(
             "where"=>array(
                 "program_level"=>$program_level,
-                "program_title"=>$program_title,
-                "program_video"=>$program_video,
-                "program_time"=>$program_time,
+                "program_content"=>$program_content,
                 "program_sort"=>$program_sort,
-                "program_show"=>$program_show
             )
         );
         $row=$PROGRAM_DB->add($parameter_program_add["where"]);
@@ -156,6 +144,44 @@ class ProgramController extends CommonController{
         }
     }
     /*
+     * 采集节目单
+     */
+    public function collection(){
+        $CHANNEL_DB=D("Channel");
+        $PROGRAM_DB=D("Program");
+        $channel_rows=$CHANNEL_DB->field("channel_web,channel_rule,channel_filter,channel_id")->select();
+        foreach ($channel_rows as $channel_row)
+        {
+            if(!empty($channel_row["channel_web"])&&!empty($channel_row["channel_rule"]))
+            {
+                //采集首页地址
+//            $url=$channel_row["channel_web"];
+                $url="http://wb.ta03.cn/m/tv.php?act=play&token=ffa6682d13d46462a1cc9724269ea953&vid=10001";
+                //获取页面代码
+                $source=file_get_contents($url);
+                //设置匹配正则
+//            $search = $channel_row["channel_rule"];
+                $search = '/<li>(.*?)<\/li>/is';
+                //采集
+                preg_match_all($search,$source,$datas);
+                echo $url."<br />".$search;
+                print_r($datas);
+            //将采集到的数据添加到数据库
+            foreach ($datas[0] as $data)
+            {
+                $parameter_program_add=array(
+                    "where"=>array(
+                        "program_level"=>$channel_row["channel_id"],
+                        "program_content"=>$data,
+                        "program_sort"=>0,
+                    )
+                );
+                $row=$PROGRAM_DB->add($parameter_program_add["where"]);
+            }
+            }
+        }
+    }
+    /*
      * 输出所有频道
      */
     public function channel()
@@ -167,7 +193,7 @@ class ProgramController extends CommonController{
                 "channel_title"=>array("like","%%"),
             )
         );
-        $channel_rows=$CHANNEL_DB->scope("channel_select",$parameter_channel_select)->select();
+        $channel_rows=$CHANNEL_DB->scope("channel_select",$parameter_channel_select)->order("channel_sort desc,channel_id asc")->select();
         return $channel_rows;
     }
 }

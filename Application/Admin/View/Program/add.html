@@ -8,9 +8,9 @@
             <hr>
         </section>
         <div class="form-group-col-2">
-            <div class="form-label">标题：</div>
+            <div class="form-label">内容：</div>
             <div class="form-cont">
-                <input type="text" class="form-control form-boxed width-30" name="program_title" id="program_title" />
+                <input type="text" class="form-control form-boxed width-30" name="program_content" id="program_content" />
                 <span class="word-aux"><i class="icon-warning-sign"></i>{:CUSTOM_SYSTOM_REQUIRED}</span>
             </div>
         </div>
@@ -25,46 +25,11 @@
             </div>
         </div>
         <div class="form-group-col-2">
-            <div class="form-label">视频：</div>
-            <div class="form-cont">
-                <input type="text" class="form-control form-boxed width-30" name="program_video" id="program_video" />
-                <span class="word-aux"><i class="icon-warning-sign"></i></span>
-            </div>
-        </div>
-        <script type="text/javascript" src="__PUBLIC__/Admin/jedate/jquery-1.7.2.js"></script>
-        <script type="text/javascript" src="__PUBLIC__/Admin/jedate/jquery.jedate.js"></script>
-        <link type="text/css" rel="stylesheet" href="__PUBLIC__/Admin/jedate/skin/jedate.css">
-        <div class="form-group-col-2">
-            <div class="form-label">播放时间：</div>
-            <div class="form-cont">
-                <input type="text" class="form-control form-boxed width-30 wicon" name="program_time" id="program_time" />
-                <script>
-                    $("#program_time").jeDate({
-                        isinitVal:true,
-                        festival: true,
-                        format: 'YYYY-MM-DD hh:mm:ss'
-                    });
-                </script>
-                <span class="word-aux"><i class="icon-warning-sign"></i>{:CUSTOM_SYSTOM_REQUIRED}</span>
-            </div>
-        </div>
-        <div class="form-group-col-2">
             <div class="form-label">排序：</div>
             <div class="form-cont">
                 <input type="text" class="form-control form-boxed width-30" name="program_sort" id="program_sort" />
                 <span class="word-aux"><i class="icon-warning-sign"></i>{:CUSTOM_SYSTOM_ORDER}</span>
             </div>
-        </div>
-        <div class="form-group-col-2">
-            <div class="form-label">是否显示：</div>
-            <label class="radio">
-                <input type="radio" name="program_show" value="1" checked />
-                <span>显示</span>
-            </label>
-            <label class="radio">
-                <input type="radio" name="program_show" value="0" />
-                <span>隐藏</span>
-            </label>
         </div>
         <div class="form-group-col-2">
             <div class="form-label"></div>

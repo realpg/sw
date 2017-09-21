@@ -5,6 +5,7 @@ class IndexController extends Controller {
     public function index(){
         $CHANNEL_DB=M("Channel");
         $BASE_DB=M("Base");
+        $PROGRAM_DB=M("Program");
         $seachname=I("seachname");
         $channel_first_row=$CHANNEL_DB->field("channel_id")->order("channel_sort desc,channel_id asc")->find();  //条件查询第一条数据
         $channel_id=I("id",$channel_first_row["channel_id"]);  //如果为空默认第一条
@@ -17,10 +18,18 @@ class IndexController extends Controller {
             )
         );
         $channel_rows=$CHANNEL_DB->field("channel_id,channel_title")->where($parameter_channel_select["where"])->order("channel_sort desc,channel_id asc")->select();  //条件查询所有频道
+        //节目单
+        $parameter_program_bylevel=array(
+            "where"=>array(
+                "program_level"=>$channel_id
+            )
+        );
+        $program_rows=$PROGRAM_DB->field("program_content")->where($parameter_program_bylevel["where"])->order("program_sort desc,program_id asc")->select();
         $base_row=$BASE_DB->find();  // 获取网站的基信息
         $this->assign("channel_link",$channel_link);
         $this->assign("channel_id",$channel_id);
         $this->assign("channel_rows",$channel_rows);
+        $this->assign("program_rows",$program_rows);
         $this->assign("base_row",$base_row);
         $this->assign("seachname",$seachname);
         $this->display();

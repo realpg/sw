@@ -48,59 +48,11 @@
             </div>
             <div class="content">
                 <div class="content-time" id="content-time"></div>
-                <div class="pragram">
+                <div class="program">
                     <ul>
-                        <li>
-                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
-                        </li>
-                        <li>
-                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
-                        </li>
-                        <li>
-                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
-                        </li>
-                        <li>
-                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
-                        </li>
-                        <li>
-                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
-                        </li>
-                        <li>
-                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
-                        </li>
-                        <li>
-                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
-                        </li>
-                        <li>
-                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
-                        </li>
-                        <li>
-                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
-                        </li>
-                        <li>
-                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
-                        </li>
-                        <li>
-                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
-                        </li>
-                        <li>
-                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
-                        </li>
-                        <li>
-                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
-                        </li>
-                        <li>
-                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
-                        </li>
-                        <li>
-                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
-                        </li>
-                        <li>
-                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
-                        </li>
-                        <li>
-                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
-                        </li>
+                        <volist name="program_rows" id="program_row">
+                            <li>{$program_row.program_content}</li>
+                        </volist>
                     </ul>
                 </div>
             </div>

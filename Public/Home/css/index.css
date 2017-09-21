@@ -153,6 +153,7 @@ a{
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
+    padding-left: 10px;
 }
 .source{
     width:90%;

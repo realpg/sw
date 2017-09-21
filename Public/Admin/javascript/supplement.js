@@ -123,14 +123,27 @@ function edit_channel()
     var channel_link_m=$("#channel_link_m").val();
     var channel_sort=$("#channel_sort").val()==""?0:$("#channel_sort").val();
     var channel_show=$("input[name='channel_show']:checked").val();
+    var channel_web=$("#channel_web").val();
+    var channel_rule=$("#channel_rule").val();
+    var channel_filter=$("#channel_filter").val();
     if(channel_title=="")
     {
         $('.mask,.dialog').show();
         $('.dialog .dialog-bd p').html('请输入标题');
     }
+    else if(channel_web=="")
+    {
+        $('.mask,.dialog').show();
+        $('.dialog .dialog-bd p').html('请输入节目单采集的页面');
+    }
+    else if(channel_rule=="")
+    {
+        $('.mask,.dialog').show();
+        $('.dialog .dialog-bd p').html('请输入节目单采集的规则');
+    }
     else
     {
-        $.post("/sw/Admin/Channel/editDo",{"channel_id":channel_id,"channel_title":channel_title,"channel_link":channel_link,"channel_link_m":channel_link_m,"channel_sort":channel_sort,"channel_show":channel_show},function(data){
+        $.post("/sw/Admin/Channel/editDo",{"channel_id":channel_id,"channel_title":channel_title,"channel_link":channel_link,"channel_link_m":channel_link_m,"channel_sort":channel_sort,"channel_show":channel_show,"channel_web":channel_web,"channel_rule":channel_rule,"channel_filter":channel_filter},function(data){
             if(data.code=="1000")
             {
                 $('.mask,.dialog').show();
@@ -152,14 +165,27 @@ function add_channel()
     var channel_link_m=$("#channel_link_m").val();
     var channel_sort=$("#channel_sort").val()==""?0:$("#channel_sort").val();
     var channel_show=$("input[name='channel_show']:checked").val();
+    var channel_web=$("#channel_web").val();
+    var channel_rule=$("#channel_rule").val();
+    var channel_filter=$("#channel_filter").val();
     if(channel_title=="")
     {
         $('.mask,.dialog').show();
         $('.dialog .dialog-bd p').html('请输入标题');
     }
+    else if(channel_web=="")
+    {
+        $('.mask,.dialog').show();
+        $('.dialog .dialog-bd p').html('请输入节目单采集的页面');
+    }
+    else if(channel_rule=="")
+    {
+        $('.mask,.dialog').show();
+        $('.dialog .dialog-bd p').html('请输入节目单采集的规则');
+    }
     else
     {
-        $.post("/sw/Admin/Channel/addDo",{"channel_title":channel_title,"channel_link":channel_link,"channel_link_m":channel_link_m,"channel_sort":channel_sort,"channel_show":channel_show},function(data){
+        $.post("/sw/Admin/Channel/addDo",{"channel_title":channel_title,"channel_link":channel_link,"channel_link_m":channel_link_m,"channel_sort":channel_sort,"channel_show":channel_show,"channel_web":channel_web,"channel_rule":channel_rule,"channel_filter":channel_filter},function(data){
             if(data.code=="1000")
             {
                 $('.mask,.dialog').show();
@@ -177,25 +203,17 @@ function add_channel()
 function edit_program()
 {
     var program_id=$("#program_id").text();
-    var program_title=$("#program_title").val();
+    var program_content=$("#program_content").val();
     var program_level=$("#program_level").val();
-    var program_video=$("#program_video").val();
-    var program_time=$("#program_time").val();
     var program_sort=$("#program_sort").val()==""?0:$("#program_sort").val();
-    var program_show=$("input[name='program_show']:checked").val();
-    if(program_title=="")
+    if(program_content=="")
     {
         $('.mask,.dialog').show();
-        $('.dialog .dialog-bd p').html('请输入标题');
-    }
-    else if(program_time=="")
-    {
-        $('.mask,.dialog').show();
-        $('.dialog .dialog-bd p').html('请选择播放时间');
+        $('.dialog .dialog-bd p').html('请输入内容');
     }
     else
     {
-        $.post("/sw/Admin/Program/editDo",{"program_id":program_id,"program_title":program_title,"program_level":program_level,"program_video":program_video,"program_time":program_time,"program_sort":program_sort,"program_show":program_show},function(data){
+        $.post("/sw/Admin/Program/editDo",{"program_id":program_id,"program_content":program_content,"program_level":program_level,"program_sort":program_sort},function(data){
             if(data.code=="1000")
             {
                 $('.mask,.dialog').show();
@@ -212,25 +230,17 @@ function edit_program()
 }
 function add_program()
 {
-    var program_title=$("#program_title").val();
+    var program_content=$("#program_content").val();
     var program_level=$("#program_level").val();
-    var program_video=$("#program_video").val();
-    var program_time=$("#program_time").val();
     var program_sort=$("#program_sort").val()==""?0:$("#program_sort").val();
-    var program_show=$("input[name='program_show']:checked").val();
-    if(program_title=="")
+    if(program_content=="")
     {
         $('.mask,.dialog').show();
         $('.dialog .dialog-bd p').html('请输入标题');
     }
-    else if(program_time=="")
-    {
-        $('.mask,.dialog').show();
-        $('.dialog .dialog-bd p').html('请选择播放时间');
-    }
     else
     {
-        $.post("/sw/Admin/Program/addDo",{"program_title":program_title,"program_level":program_level,"program_video":program_video,"program_time":program_time,"program_sort":program_sort,"program_show":program_show},function(data){
+        $.post("/sw/Admin/Program/addDo",{"program_content":program_content,"program_level":program_level,"program_sort":program_sort},function(data){
             if(data.code=="1000")
             {
                 $('.mask,.dialog').show();
@@ -244,6 +254,12 @@ function add_program()
             }
         },"json")
     }
+}
+function collection()
+{
+    $.post("/sw/Admin/Program/collection",function(){
+
+    })
 }
 function All(e, itemName)
 {
@@ -316,3 +332,4 @@ function delayed_dialog(data,time)
     }
     jump(time);
 }
+

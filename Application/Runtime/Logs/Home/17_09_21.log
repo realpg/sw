@@ -1,0 +1,391 @@
+[ 2017-09-21T10:46:16+08:00 ] ::1 /sw/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `channel` [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `base` [ RunTime:0.0110s ]
+SQL: SHOW COLUMNS FROM `program` [ RunTime:0.0070s ]
+SQL: SELECT `channel_id` FROM `channel` ORDER BY channel_sort desc,channel_id asc LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `channel` WHERE `channel_id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `channel_id`,`channel_title` FROM `channel` WHERE `channel_show` = 1 AND `channel_title` LIKE '%%' ORDER BY channel_sort desc,channel_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `base` LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031200s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031200s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-09-21T10:57:47+08:00 ] ::1 /sw/?id=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `channel` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `base` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `program` [ RunTime:0.0080s ]
+SQL: SELECT `channel_id` FROM `channel` ORDER BY channel_sort desc,channel_id asc LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `channel` WHERE `channel_id` = 2 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `channel_id`,`channel_title` FROM `channel` WHERE `channel_show` = 1 AND `channel_title` LIKE '%%' ORDER BY channel_sort desc,channel_id asc  [ RunTime:0.0010s ]
+SQL: SELECT `program_content` FROM `program` WHERE `program_level` = 2 ORDER BY program_sort desc,program_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `base` LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-21T10:57:50+08:00 ] ::1 /sw/?id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `channel` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `base` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `program` [ RunTime:0.0070s ]
+SQL: SELECT `channel_id` FROM `channel` ORDER BY channel_sort desc,channel_id asc LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `channel` WHERE `channel_id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `channel_id`,`channel_title` FROM `channel` WHERE `channel_show` = 1 AND `channel_title` LIKE '%%' ORDER BY channel_sort desc,channel_id asc  [ RunTime:0.0000s ]
+SQL: SELECT `program_content` FROM `program` WHERE `program_level` = 1 ORDER BY program_sort desc,program_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `base` LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2017-09-21T10:57:51+08:00 ] ::1 /sw/?id=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `channel` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `base` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `program` [ RunTime:0.0070s ]
+SQL: SELECT `channel_id` FROM `channel` ORDER BY channel_sort desc,channel_id asc LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `channel` WHERE `channel_id` = 2 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `channel_id`,`channel_title` FROM `channel` WHERE `channel_show` = 1 AND `channel_title` LIKE '%%' ORDER BY channel_sort desc,channel_id asc  [ RunTime:0.0000s ]
+SQL: SELECT `program_content` FROM `program` WHERE `program_level` = 2 ORDER BY program_sort desc,program_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `base` LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-21T10:57:53+08:00 ] ::1 /sw/?id=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `channel` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `base` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `program` [ RunTime:0.0040s ]
+SQL: SELECT `channel_id` FROM `channel` ORDER BY channel_sort desc,channel_id asc LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT * FROM `channel` WHERE `channel_id` = 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `channel_id`,`channel_title` FROM `channel` WHERE `channel_show` = 1 AND `channel_title` LIKE '%%' ORDER BY channel_sort desc,channel_id asc  [ RunTime:0.0000s ]
+SQL: SELECT `program_content` FROM `program` WHERE `program_level` = 3 ORDER BY program_sort desc,program_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `base` LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2017-09-21T10:57:54+08:00 ] ::1 /sw/?id=4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `channel` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `base` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `program` [ RunTime:0.0080s ]
+SQL: SELECT `channel_id` FROM `channel` ORDER BY channel_sort desc,channel_id asc LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `channel` WHERE `channel_id` = 4 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `channel_id`,`channel_title` FROM `channel` WHERE `channel_show` = 1 AND `channel_title` LIKE '%%' ORDER BY channel_sort desc,channel_id asc  [ RunTime:0.0000s ]
+SQL: SELECT `program_content` FROM `program` WHERE `program_level` = 4 ORDER BY program_sort desc,program_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `base` LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-09-21T10:57:55+08:00 ] ::1 /sw/?id=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+SQL: SHOW COLUMNS FROM `channel` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `base` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `program` [ RunTime:0.0080s ]
+SQL: SELECT `channel_id` FROM `channel` ORDER BY channel_sort desc,channel_id asc LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `channel` WHERE `channel_id` = 5 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `channel_id`,`channel_title` FROM `channel` WHERE `channel_show` = 1 AND `channel_title` LIKE '%%' ORDER BY channel_sort desc,channel_id asc  [ RunTime:0.0010s ]
+SQL: SELECT `program_content` FROM `program` WHERE `program_level` = 5 ORDER BY program_sort desc,program_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `base` LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2017-09-21T10:57:58+08:00 ] ::1 /sw/?id=6
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `channel` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `base` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `program` [ RunTime:0.0060s ]
+SQL: SELECT `channel_id` FROM `channel` ORDER BY channel_sort desc,channel_id asc LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `channel` WHERE `channel_id` = 6 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `channel_id`,`channel_title` FROM `channel` WHERE `channel_show` = 1 AND `channel_title` LIKE '%%' ORDER BY channel_sort desc,channel_id asc  [ RunTime:0.0000s ]
+SQL: SELECT `program_content` FROM `program` WHERE `program_level` = 6 ORDER BY program_sort desc,program_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `base` LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2017-09-21T10:59:45+08:00 ] ::1 /sw/?id=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `channel` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `base` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `program` [ RunTime:0.0080s ]
+SQL: SELECT `channel_id` FROM `channel` ORDER BY channel_sort desc,channel_id asc LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `channel` WHERE `channel_id` = 2 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `channel_id`,`channel_title` FROM `channel` WHERE `channel_show` = 1 AND `channel_title` LIKE '%%' ORDER BY channel_sort desc,channel_id asc  [ RunTime:0.0000s ]
+SQL: SELECT `program_content` FROM `program` WHERE `program_level` = 2 ORDER BY program_sort desc,program_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `base` LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-21T10:59:55+08:00 ] ::1 /sw/?id=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `channel` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `base` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `program` [ RunTime:0.0070s ]
+SQL: SELECT `channel_id` FROM `channel` ORDER BY channel_sort desc,channel_id asc LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `channel` WHERE `channel_id` = 2 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `channel_id`,`channel_title` FROM `channel` WHERE `channel_show` = 1 AND `channel_title` LIKE '%%' ORDER BY channel_sort desc,channel_id asc  [ RunTime:0.0010s ]
+SQL: SELECT `program_content` FROM `program` WHERE `program_level` = 2 ORDER BY program_sort desc,program_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `base` LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-21T11:00:01+08:00 ] ::1 /sw/?id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+SQL: SHOW COLUMNS FROM `channel` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `base` [ RunTime:0.0110s ]
+SQL: SHOW COLUMNS FROM `program` [ RunTime:0.0080s ]
+SQL: SELECT `channel_id` FROM `channel` ORDER BY channel_sort desc,channel_id asc LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `channel` WHERE `channel_id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `channel_id`,`channel_title` FROM `channel` WHERE `channel_show` = 1 AND `channel_title` LIKE '%%' ORDER BY channel_sort desc,channel_id asc  [ RunTime:0.0010s ]
+SQL: SELECT `program_content` FROM `program` WHERE `program_level` = 1 ORDER BY program_sort desc,program_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `base` LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-21T11:00:02+08:00 ] ::1 /sw/?id=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `channel` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `base` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `program` [ RunTime:0.0060s ]
+SQL: SELECT `channel_id` FROM `channel` ORDER BY channel_sort desc,channel_id asc LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `channel` WHERE `channel_id` = 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `channel_id`,`channel_title` FROM `channel` WHERE `channel_show` = 1 AND `channel_title` LIKE '%%' ORDER BY channel_sort desc,channel_id asc  [ RunTime:0.0010s ]
+SQL: SELECT `program_content` FROM `program` WHERE `program_level` = 3 ORDER BY program_sort desc,program_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `base` LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-21T11:25:17+08:00 ] ::1 /sw/?id=7
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `channel` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `base` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `program` [ RunTime:0.0090s ]
+SQL: SELECT `channel_id` FROM `channel` ORDER BY channel_sort desc,channel_id asc LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `channel` WHERE `channel_id` = 7 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `channel_id`,`channel_title` FROM `channel` WHERE `channel_show` = 1 AND `channel_title` LIKE '%%' ORDER BY channel_sort desc,channel_id asc  [ RunTime:0.0000s ]
+SQL: SELECT `program_content` FROM `program` WHERE `program_level` = 7 ORDER BY program_sort desc,program_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `base` LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-09-21T12:10:47+08:00 ] ::1 /sw/?id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `channel` [ RunTime:0.0120s ]
+SQL: SHOW COLUMNS FROM `base` [ RunTime:0.0110s ]
+SQL: SHOW COLUMNS FROM `program` [ RunTime:0.0110s ]
+SQL: SELECT `channel_id` FROM `channel` ORDER BY channel_sort desc,channel_id asc LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `channel` WHERE `channel_id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `channel_id`,`channel_title` FROM `channel` WHERE `channel_show` = 1 AND `channel_title` LIKE '%%' ORDER BY channel_sort desc,channel_id asc  [ RunTime:0.0000s ]
+SQL: SELECT `program_content` FROM `program` WHERE `program_level` = 1 ORDER BY program_sort desc,program_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `base` LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
