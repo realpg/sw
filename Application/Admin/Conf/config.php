@@ -11,7 +11,7 @@ define("CUSTOM_SYSTOM_EDIT", "<i class='icon-pencil'></i>编辑");
 define("CUSTOM_SYSTOM_SEE", "查看详情");
 define("CUSTOM_SYSTOM_DELETE", "<i class='icon-trash'></i>删除");
 define("CUSTOM_SYSTOM_DELETEALL", "<i class='icon-trash'></i>批量删除");
-define("CUSTOM_SYSTOM_COLLECTION", "<i class='icon-list-alt'></i>一键采集节目单");
+define("CUSTOM_SYSTOM_COLLECTION", "<i class='icon-list-alt'></i>一键更新并采集节目单");
 define("CUSTOM_SYSTOM_BAN_DELETEALL", "--");
 define("CUSTOM_SYSTOM_EDITPASSWORD", "修改密码");
 define("CUSTOM_SYSTOM_BAR", "系统提示");

@@ -257,10 +257,17 @@ function add_program()
 }
 function collection()
 {
-    $("#collection").html("<span class=\'icon-spin icon-refresh\'></span>采集中……");
-    $.post("/sw/Admin/Program/collection",function(){
-        history.go(0);
-    })
+    layer.confirm('采集节目单将删除之前的节目单，并采集新的节目单；采集的时间有可能会长。确定要采集吗？', {
+        title:'系统提示',
+        btn: ['确定','取消']
+    }, function(){
+        $("#layui-layer-shade1").css("display","none");  //隐藏遮罩
+        $("#layui-layer1").css("display","none");  //隐藏layer
+        $("#collection").html("<span class=\'icon-spin icon-refresh\'></span>采集中……");
+        $.post("/sw/Admin/Program/collection",function(){
+            history.go(0);
+        })
+    });
 }
 function All(e, itemName)
 {
