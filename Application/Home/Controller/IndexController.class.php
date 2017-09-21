@@ -3,6 +3,26 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
-        $this->show('<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} body{ background: #fff; font-family: "微软雅黑"; color: #333;font-size:24px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.8em; font-size: 36px } a,a:hover{color:blue;}</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>欢迎使用 <b>ThinkPHP</b>！</p><br/>版本 V{$Think.version}</div><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_55e75dfae343f5a1"></thinkad><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script>','utf-8');
+        $CHANNEL_DB=M("Channel");
+        $BASE_DB=M("Base");
+        $seachname=I("seachname");
+        $channel_first_row=$CHANNEL_DB->field("channel_id")->order("channel_sort desc,channel_id asc")->find();  //条件查询第一条数据
+        $channel_id=I("id",$channel_first_row["channel_id"]);  //如果为空默认第一条
+        $channel_row=$CHANNEL_DB->find($channel_id);  //条件查询播放的频道
+        $channel_link=$channel_row["channel_link"];   //获取视频来源
+        $parameter_channel_select=array(
+            "where"=>array(
+                "channel_show"=>"1",
+                "channel_title"=>array("like","%".$seachname."%")
+            )
+        );
+        $channel_rows=$CHANNEL_DB->field("channel_id,channel_title")->where($parameter_channel_select["where"])->order("channel_sort desc,channel_id asc")->select();  //条件查询所有频道
+        $base_row=$BASE_DB->find();  // 获取网站的基信息
+        $this->assign("channel_link",$channel_link);
+        $this->assign("channel_id",$channel_id);
+        $this->assign("channel_rows",$channel_rows);
+        $this->assign("base_row",$base_row);
+        $this->assign("seachname",$seachname);
+        $this->display();
     }
 }

@@ -1,14 +1,9 @@
-1.Application/Admin/Common/CommonController.class.php   13ĞĞ  $this->error('¾¯¸æ£¡·Ç·¨²Ù×÷£ºµÇÂ¼³¬Ê±»òÓÃ»§ÒÑ±»Çå³ı£¬ÇëÖØĞÂÏÈµÇÂ¼£¡Ìø×ªÖĞ...',"/sw/admin.html",5);
-2.Application/Admin/Common/CommonController.class.php   24ĞĞ  $this->error('¾¯¸æ£¡·Ç·¨²Ù×÷£ºÇëÏÈµÇÂ¼£¡Ìø×ªÖĞ...',"/sw/admin.html",5);
-3.Public/Admin/javascript/pages/login.js     20ĞĞ  $.post("../sw/Admin/Index/login",{"user_id":user_id,"user_password":user_password,"code":code},function(data)
-4.Public/Admin/javascript/pages/login.js     23ĞĞ  location.href="../sw/Admin/Home/index";
-5.Public/Admin/javascript/pages/login.js     30ĞĞ  $("#verify").attr("src","/sw/Admin/Verify/verify");
-6.Public/Admin/javascript/public.js     100ĞĞ  location.href =  '/sw/Admin/Index/unsetsession';
-7.Public/Admin/javascript/public.js     109ĞĞ  $.post("/sw/Admin/Index/clearruntime",function(data){
-8.Public/Admin/javascript/supplement.js     34ĞĞ  $.post("/sw/Admin/User/editDo",{"user_password":user_password,"user_new_password":user_new_password,"code":code},function(data){
-9.Public/Admin/javascript/supplement.js     39ĞĞ  $('.dialog .dialog-ft').html("<a href='/sw/Admin'><button class='btn btn-info JyesBtn'>È·ÈÏ</button></a>")
-10.Public/Admin/javascript/supplement.js     41ĞĞ   $.post("/sw/Admin/User/editDo",{"user_id":user_id,"user_name":user_name,"user_password":user_password,"user_new_password":user_new_password,"code":code},function(data){
-11.Public/Admin/javascript/supplement.js     46ĞĞ  $('.dialog .dialog-ft').html("<a href='/sw/Admin'><button class='btn btn-info JyesBtn'>È·ÈÏ</button></a>")
-12.Public/Admin/javascript/supplement.js     53ĞĞ  $("#verify").attr("src","/sw/Admin/Verify/verify");
-13.Public/Admin/javascript/supplement.js     84ĞĞ  $.post("/sw/Admin/User/addDo",{"user_name":user_name,"user_password":user_password},function(data){
-14.Public/Admin/javascript/supplement.js     89ĞĞ  $('.dialog .dialog-ft').html("<a href='/sw/Admin/User/index'><button class='btn btn-info JyesBtn'>È·ÈÏ</button></a>")
+ï»¿1.Application/Admin/Common/CommonController.class.php   13ï¿½ï¿½  $this->error('ï¿½ï¿½ï¿½æ£¡ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ñ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Èµï¿½Â¼ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½...',"/sw/admin.html",5);
+2.Application/Admin/Common/CommonController.class.php   24ï¿½ï¿½  $this->error('ï¿½ï¿½ï¿½æ£¡ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Èµï¿½Â¼ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½...',"/sw/admin.html",5);
+3.Public/Admin/javascript/pages/login.js     20ï¿½ï¿½  $.post("../sw/Admin/Index/login",{"user_id":user_id,"user_password":user_password,"code":code},function(data)
+4.Public/Admin/javascript/pages/login.js     23ï¿½ï¿½  location.href="../sw/Admin/Home/index";
+5.Public/Admin/javascript/pages/login.js     30ï¿½ï¿½  $("#verify").attr("src","/sw/Admin/Verify/verify");
+6.Public/Admin/javascript/public.js     100ï¿½ï¿½  location.href =  '/sw/Admin/Index/unsetsession';
+7.Public/Admin/javascript/public.js     109ï¿½ï¿½  $.post("/sw/Admin/Index/clearruntime",function(data){
+8.æ‰€æœ‰Public/Admin/javascript/supplement.jsä¸­çš„/sw/æ›¿æ¢æˆ/
+9.Application/Mobile/Home/View/Index/index.html  8è¡Œ window.location.href = "/sw/mobile.html";

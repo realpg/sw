@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$base_row.base_title}</title>
+    <css href="__PUBLIC__/Home/css/index.css" />
+    <js href="__PUBLIC__/Home/js/jquery.min.js" />
+    <js href="__PUBLIC__/Home/js/index.js" />
+</head>
+<body>
+    <div class="body" id="body">
+        <!--左侧频道栏-->
+        <div class="left">
+            <div class="logo"><img src="__PUBLIC__/Images/logo.png"  /></div>
+            <div class="search">
+                <div class="search-button" onclick="search()"><img src="__PUBLIC__/Images/search.png" /></div>
+                <div class="search-input">
+                    <form action="{:U('Home/Index/index')}" method="post" id="searchChannel">
+                        <input type="text" name="seachname" />
+                    </form>
+                </div>
+            </div>
+            <div class="title">频道</div>
+            <div class="channel">
+                <ul>
+                    <volist name="channel_rows" id="channel_row">
+                        <a href="?id={$channel_row.channel_id}">
+                            <if condition="$channel_row.channel_id eq $channel_id">
+                                <li style="background: #fff;">{$channel_row.channel_title}</li>
+                                <else />
+                                <li>{$channel_row.channel_title}</li>
+                            </if>
+                        </a>
+                    </volist>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!--中间视频区-->
+        <div class="main">
+            <iframe style="margin: 8% auto;" frameborder="0" height="80%" width="100%" scrolling="no" marginheight="0" marginwidth="0" border="0" src="{$channel_link}"></iframe>
+        </div>
+        <!--右侧节目单-->
+        <div class="right">
+            <div class="tab">
+                <div class="tab-time">时间</div>
+                <div class="tab-menu">节目</div>
+            </div>
+            <div class="content">
+                <div class="content-time" id="content-time"></div>
+                <div class="pragram">
+                    <ul>
+                        <li>
+                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
+                        </li>
+                        <li>
+                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
+                        </li>
+                        <li>
+                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
+                        </li>
+                        <li>
+                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
+                        </li>
+                        <li>
+                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
+                        </li>
+                        <li>
+                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
+                        </li>
+                        <li>
+                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
+                        </li>
+                        <li>
+                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
+                        </li>
+                        <li>
+                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
+                        </li>
+                        <li>
+                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
+                        </li>
+                        <li>
+                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
+                        </li>
+                        <li>
+                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
+                        </li>
+                        <li>
+                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
+                        </li>
+                        <li>
+                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
+                        </li>
+                        <li>
+                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
+                        </li>
+                        <li>
+                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
+                        </li>
+                        <li>
+                            <div class="tab-time">13:20</div><div class="tab-menu">节目</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="source">
+        视频来源：{$channel_link}
+    </div>
+</body>
+</html>
