@@ -1,10 +1,11 @@
-﻿1.Application/Admin/Common/CommonController.class.php   13��  $this->error('���棡�Ƿ���������¼��ʱ���û��ѱ�������������ȵ�¼����ת��...',"/sw/admin.html",5);
-2.Application/Admin/Common/CommonController.class.php   24��  $this->error('���棡�Ƿ����������ȵ�¼����ת��...',"/sw/admin.html",5);
-3.Public/Admin/javascript/pages/login.js     20��  $.post("../sw/Admin/Index/login",{"user_id":user_id,"user_password":user_password,"code":code},function(data)
-4.Public/Admin/javascript/pages/login.js     23��  location.href="../sw/Admin/Home/index";
-5.Public/Admin/javascript/pages/login.js     30��  $("#verify").attr("src","/sw/Admin/Verify/verify");
-6.Public/Admin/javascript/public.js     100��  location.href =  '/sw/Admin/Index/unsetsession';
-7.Public/Admin/javascript/public.js     109��  $.post("/sw/Admin/Index/clearruntime",function(data){
+﻿1.Application/Admin/Common/CommonController.class.php   13行
+2.Application/Admin/Common/CommonController.class.php   24行
+3.Public/Admin/javascript/pages/login.js     20行
+4.Public/Admin/javascript/pages/login.js     23行
+5.Public/Admin/javascript/pages/login.js     30行
+6.Public/Admin/javascript/public.js     100行
+7.Public/Admin/javascript/public.js     109行
 8.所有Public/Admin/javascript/supplement.js中的/sw/替换成/
 9.Application/Mobile/Home/View/Index/index.html  8行 window.location.href = "/sw/mobile.html";
 10.Public/Home/js/index.js中的/sw/替换成/
+11.根目录下caiji.bat中的localhost:8080/sw改成网站域名
