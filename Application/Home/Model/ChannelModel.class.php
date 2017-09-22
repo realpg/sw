@@ -1,14 +1,14 @@
 <?php
-namespace Admin\Model;
+namespace Home\Model;
 use Think\Model\RelationModel;
-//use Think\Model;
 class ChannelModel extends RelationModel{
     protected $_scope=array(
         //条件查询
         "channel_select"=>array(
-            "field"=>array("channel_id","channel_title","channel_show"),
+            "field"=>array("channel_id","channel_title"),
             "where"=>array(
-                "channel_title"=>array("like","%%")
+                "channel_title"=>array("like","%%"),
+                "channel_show"=>"1",
             ),
         ),
         //根据id获取

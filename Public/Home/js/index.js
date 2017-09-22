@@ -29,3 +29,14 @@ $(function(){
 function search(){
     $("#searchChannel").submit();
 }
+//切换视频
+function playvideo(channel_id){
+    var searchname=$("#searchname").val();
+    $.post("/sw/Home/Index/play",{"channel_id":channel_id,"searchname":searchname},function(data){
+        $("#channel").html(data["channel"]);
+        $("#main").html(data["main"]);
+        $("#program").html(data["program"]);
+        $("#source").html(data["source"]);
+        $("#searchname").val(data["searchname"]);
+    })
+}

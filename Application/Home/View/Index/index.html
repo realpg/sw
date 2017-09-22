@@ -16,28 +16,30 @@
                 <div class="search-button" onclick="search()"><img src="__PUBLIC__/Images/search.png" /></div>
                 <div class="search-input">
                     <form action="{:U('Home/Index/index')}" method="post" id="searchChannel">
-                        <input type="text" name="seachname" />
+                        <input type="text" name="searchname" id="searchname" value="{$searchname}" />
                     </form>
                 </div>
             </div>
             <div class="title">频道</div>
             <div class="channel">
-                <ul>
+                <ul id="channel">
                     <volist name="channel_rows" id="channel_row">
-                        <a href="?id={$channel_row.channel_id}">
+                        <a href="javascript:void(0)" onclick="playvideo({$channel_row.channel_id})">
                             <if condition="$channel_row.channel_id eq $channel_id">
-                                <li style="background: #fff;">{$channel_row.channel_title}</li>
+                                <li style="background: #fff;">
+                                    {$channel_row.channel_title}
+                                </li>
                                 <else />
                                 <li>{$channel_row.channel_title}</li>
                             </if>
-                        </a>
+                        <!--</a>-->
                     </volist>
                 </ul>
             </div>
             <div class="clear"></div>
         </div>
         <!--中间视频区-->
-        <div class="main">
+        <div class="main" id="main">
             <iframe style="margin: 8% auto;" frameborder="0" height="80%" width="100%" scrolling="no" marginheight="0" marginwidth="0" border="0" src="{$channel_link}"></iframe>
         </div>
         <!--右侧节目单-->
@@ -49,7 +51,7 @@
             <div class="content">
                 <div class="content-time" id="content-time"></div>
                 <div class="program">
-                    <ul>
+                    <ul id="program">
                         <volist name="program_rows" id="program_row">
                             <li>{$program_row.program_content}</li>
                         </volist>
@@ -58,7 +60,7 @@
             </div>
         </div>
     </div>
-    <div class="source">
+    <div class="source" id="source">
         视频来源：{$channel_link}
     </div>
 </body>
