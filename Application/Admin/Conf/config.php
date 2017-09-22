@@ -39,5 +39,6 @@ define("CUSTOM_SYSTOM_CLEAR","清除缓存");  //后台通用顶部文字
 define("CUSTOM_SYSTOM_ADMIN","管理员");  //后台通用顶部文字
 
 //==========================静态页提示语=============================//
-define("CUSTOM_MESSAGE_EDITUSER","密码采用<b>不可逆</b>加密技术，请妥善保管好密码");  //密码修改提示语
+define("CUSTOM_MESSAGE_EDITUSER","温馨提示：密码采用<b>不可逆</b>加密技术，请妥善保管好密码");  //密码修改提示语
 define("CUSTOM_MESSAGE_NODATA","没有找到相关数据！");  //列表页没有数据时的提示语
+define("CUSTOM_MESSAGE_COLLECTION","温馨提示：系统每天0点会自动采集一次节目单，但是由于所采集的不同网站的数据不一定是在每天0点之前更新完毕，其他时间可以手动点击<b>一键更新并采集节目单</b>进行更新");  //密码修改提示语

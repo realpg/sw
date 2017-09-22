@@ -30,9 +30,10 @@ class ProgramController extends CommonController{
             );
         }
         //节目单条件查询
-        $program_rows=$PROGRAM_DB->scope("program_select",$parameter_program_select)->limit(($p-1)*CUSTOM_PAGING,CUSTOM_PAGING)->order("program_sort desc,program_id asc")->select();
+        $custom_paging=5;  //设置每页显示的条数
+        $program_rows=$PROGRAM_DB->scope("program_select",$parameter_program_select)->limit(($p-1)*$custom_paging,$custom_paging)->order("program_sort desc,program_id asc")->select();
         $program_count=count($PROGRAM_DB->scope("program_select",$parameter_program_select)->select());
-        $program_page = new \Think\Page($program_count,CUSTOM_PAGING);// 实例化分页类
+        $program_page = new \Think\Page($program_count,$custom_paging);// 实例化分页类
         $page_show = $program_page->show();// 分页显示输出
 
         //输出所有频道

@@ -7,3 +7,4 @@
 7.Public/Admin/javascript/public.js     109��  $.post("/sw/Admin/Index/clearruntime",function(data){
 8.所有Public/Admin/javascript/supplement.js中的/sw/替换成/
 9.Application/Mobile/Home/View/Index/index.html  8行 window.location.href = "/sw/mobile.html";
+10.Public/Home/js/index.js中的/sw/替换成/
