@@ -23,7 +23,7 @@
         <volist name="channel_rows" id="channel_row">
             <a href="?id={$channel_row.channel_id}">
                 <if condition="$channel_row.channel_id eq $channel_id">
-                    <li style="background: #24cf98;color:#f1f1f1;">{$channel_row.channel_title}</li>
+                    <li style="background: #fff;">{$channel_row.channel_title}</li>
                 <else />
                     <li>{$channel_row.channel_title}</li>
                 </if>
