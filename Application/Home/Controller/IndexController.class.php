@@ -7,9 +7,15 @@ class IndexController extends Controller {
         $BASE_DB=M("Base");
         $PROGRAM_DB=D("Program");
         $searchname=I("searchname");
-        $channel_first_row=$CHANNEL_DB->scope("channel_select")->order("channel_sort desc,channel_id asc")->find();  //条件查询第一条数据
+        $parameter_channel_first=array(
+            "where"=>array(
+                "channel_show"=>"1",
+                "channel_title"=>array("like","%".$searchname."%")
+            )
+        );
+        $channel_first_row=$CHANNEL_DB->scope("channel_select",$parameter_channel_first)->order("channel_sort desc,channel_id asc")->find();  //条件查询第一条数据
         $channel_id=I("id",$channel_first_row["channel_id"]);  //如果为空默认第一条
-        $channel_id=I("id");
+//        $channel_id=I("id");
         $channel_row=$CHANNEL_DB->find($channel_id);  //条件查询播放的频道
         $channel_link=$channel_row["channel_link"];   //获取视频来源
         $parameter_channel_select=array(
