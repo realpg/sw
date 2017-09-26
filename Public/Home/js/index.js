@@ -2,8 +2,8 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     window.location.href = "/sw/mobile.html"; //可以换成http地址
 }
 $(function(){
-    // var win_height=$(window).height(); //浏览器时下窗口可视区域高度
-    // $("#body").css("height",win_height);
+    var win_height=$(window).height(); //浏览器时下窗口可视区域高度
+    $("#body").css("height",win_height);
 
     // 对Date的扩展，将 Date 转化为指定格式的String
     // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
