@@ -94,7 +94,7 @@ a{
 .left ul{
     margin:0px;
     padding:0px;
-    height:426px;
+    /*height:426px;*/
     overflow:auto;
     background: #d9dcdb;
 }
@@ -142,7 +142,7 @@ a{
 .right ul{
     margin:0px;
     padding:0px;
-    height:508px;
+    /*height:508px;*/
     background: #d9dcdb;
     overflow: auto;
 }

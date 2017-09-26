@@ -4,6 +4,10 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 $(function(){
     var win_height=$(window).height(); //浏览器时下窗口可视区域高度
     $("#body").css("height",win_height);
+    var channel_height=win_height-100-40-40-40; //设置频道列表的高度（屏幕高度-LOGO模块高度100-搜索框高度40-频道标题高度40-底部边框高度40）
+    $("#channel").css("height",channel_height);
+    var program_height=win_height-70-30-40; //设置节目列表的高度（屏幕高度-节目标题模块高度70-时间栏高度（+底部border1px）30-底部边框高度40）
+    $("#program").css("height",program_height);
 
     // 对Date的扩展，将 Date 转化为指定格式的String
     // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
