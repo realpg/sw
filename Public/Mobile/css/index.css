@@ -65,6 +65,10 @@ body{
     text-decoration: none;
     color:#353535;
 }
+.seat{
+    clear: both;
+    height:70px;
+}
 .footer{
     position:fixed;
     bottom:0;
