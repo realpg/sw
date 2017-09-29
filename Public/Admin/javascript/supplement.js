@@ -99,9 +99,11 @@ function add_user()
 function edit_base()
 {
     var base_title=$("#base_title").val();
+    var base_keywords=$("#base_keywords").val();
+    var base_description=$("#base_description").val();
     var base_copyright=$("#base_copyright").val();
     var base_record=$("#base_record").val();
-    $.post("/sw/Admin/Base/editDo",{"base_title":base_title,"base_copyright":base_copyright,"base_record":base_record},function(data){
+    $.post("/sw/Admin/Base/editDo",{"base_title":base_title,"base_keywords":base_keywords,"base_description":base_description,"base_copyright":base_copyright,"base_record":base_record},function(data){
         if(data.code=="1000")
         {
             $('.mask,.dialog').show();

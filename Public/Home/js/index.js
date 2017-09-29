@@ -3,7 +3,10 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 }
 $(function(){
     var win_height=$(window).height(); //浏览器时下窗口可视区域高度
+    margin_top=win_height*0.05
+	win_height=win_height*0.9
     $("#body").css("height",win_height);
+	$("#body").css("margin-top",margin_top);
     var channel_height=win_height-100-40-40-40; //设置频道列表的高度（屏幕高度-LOGO模块高度100-搜索框高度40-频道标题高度40-底部边框高度40）
     $("#channel").css("height",channel_height);
     var program_height=win_height-70-30-40; //设置节目列表的高度（屏幕高度-节目标题模块高度70-时间栏高度（+底部border1px）30-底部边框高度40）

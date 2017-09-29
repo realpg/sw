@@ -17,6 +17,8 @@ class BaseController extends CommonController{
     {
         $BASE_DB=D("Base");
         $base_title=I("base_title");
+        $base_keywords=I("base_keywords");
+        $base_description=I("base_description");
         $base_copyright=I("base_copyright");
         $base_record=I("base_record");
         $data=array();
@@ -24,6 +26,8 @@ class BaseController extends CommonController{
             "where"=>array(
                 "base_id"=>"1",
                 "base_title"=>$base_title,
+                "base_keywords"=>$base_keywords,
+                "base_description"=>$base_description,
                 "base_copyright"=>$base_copyright,
                 "base_record"=>$base_record
                 )
