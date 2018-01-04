@@ -107,6 +107,8 @@ class IndexController extends CommonController{
                                 "program_sort"=>0,
                             )
                         );
+						var_dump($parameter_program_add["where"]);
+						echo "<br />";
                         $row=$PROGRAM_DB->add($parameter_program_add["where"]);
                     }
                 }
